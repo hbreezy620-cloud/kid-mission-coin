@@ -719,7 +719,7 @@ function viewWallet(today){
       '<p class="sub">코인 1개 = ' + won(COIN_WON) + ' · ' + REDEEM_MIN + '코인부터 사용할 수 있어요</p></div></div>';
 
   if (bal >= REDEEM_MIN){
-    out += '<div class="redeem-big"><div class="n">' + num(bal * COIN_WON) + '</div>' +
+    out += '<div class="redeem-big"><div class="n">' + won(bal * COIN_WON) + '</div>' +
       '<div class="w">지금 가진 코인으로 바꿀 수 있는 금액</div></div>' +
       '<button class="btn mint" style="margin-top:12px" data-act="openRedeem">🪙 코인 사용하기</button>' +
       '<p class="note">부모님이 현금을 주신 뒤에 눌러 주세요. 사용한 코인은 바로 차감돼요.</p>';
@@ -751,6 +751,7 @@ function viewWallet(today){
       '<p>아직 코인 내역이 없어요.<br>미션을 모두 체크하면 여기에 쌓여요!</p></div>';
   } else {
     var sorted = S.ledger.slice().sort(function(a, b){
+      if (a.dateKey !== b.dateKey) return a.dateKey < b.dateKey ? 1 : -1;
       if (a.at === b.at) return 0;
       return a.at < b.at ? 1 : -1;
     });
