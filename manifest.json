@@ -1,0 +1,17 @@
+{
+  "name": "미션 코인 · 우리 아이 미션 체크",
+  "short_name": "미션 코인",
+  "description": "아이가 정한 매일 미션을 체크하고 코인을 모아 현금처럼 쓰는 우리 집 앱",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF8F1",
+  "theme_color": "#FF8A4C",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
