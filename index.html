@@ -3,33 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#FF8A4C">
-<meta name="description" content="아이의 매일 미션 체크리스트와 코인 보상, 현금 사용까지 한 곳에서.">
+<meta name="theme-color" content="#8B7BE8">
+<meta name="description" content="뀨뀨 미션 수행 대작전! 아이의 매일 미션 체크리스트와 코인 보상, 현금 사용까지 한 곳에서.">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="미션 코인">
-<title>미션 코인 · 우리 아이 미션 체크</title>
+<meta name="apple-mobile-web-app-title" content="뀨뀨 미션">
+<title>뀨뀨 미션 수행 대작전! · 매일 미션 체크</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.92em' font-size='88'%3E%F0%9F%AA%99%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15 C69 15 81 30 81 51 C81 71 67 84 50 84 C33 84 19 71 19 51 C19 30 31 15 50 15Z' fill='%23FF9384'/%3E%3Cpath d='M50 15 C49 8.5 55 5.5 60.2 7.6' fill='none' stroke='%23FF9384' stroke-width='3.4' stroke-linecap='round'/%3E%3Ccircle cx='61.8' cy='7.8' r='4.4' fill='%23B9A5F5'/%3E%3Ccircle cx='36' cy='50' r='6.4' fill='%234A3550'/%3E%3Ccircle cx='64' cy='50' r='6.4' fill='%234A3550'/%3E%3Ccircle cx='38.6' cy='47.2' r='2.2' fill='%23FFF'/%3E%3Ccircle cx='66.6' cy='47.2' r='2.2' fill='%23FFF'/%3E%3Cellipse cx='25.5' cy='60' rx='5.8' ry='4' fill='%23FFB3C1'/%3E%3Cellipse cx='74.5' cy='60' rx='5.8' ry='4' fill='%23FFB3C1'/%3E%3Cpath d='M44 60.5 Q50 67 56 60.5' fill='none' stroke='%234A3550' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E"
 <style>
 *,*::before,*::after{box-sizing:border-box}
 :root{
-  --ink:#372C28; --muted:#9C8B82; --line:#FBEFE5;
-  --primary:#FF8A4C; --primary-2:#F2703A; --mint:#22B592;
-  --shadow:0 10px 26px -14px rgba(197,133,96,.55);
-  --shadow-sm:0 4px 14px -8px rgba(197,133,96,.55);
+  --ink:#43395E; --muted:#9189B0; --line:#EDE9FA;
+  --primary:#7C6CE0; --primary-2:#6A59D4; --mint:#1FA98B; --mint-2:#2FBF9B;
+  --lav:#F2EEFE;
+  --shadow:0 12px 28px -16px rgba(110,94,200,.5);
+  --shadow-sm:0 4px 14px -8px rgba(110,94,200,.5);
 }
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0; min-height:100dvh; color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  font-family:'Gowun Dodum',-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
   font-size:16px; line-height:1.45; -webkit-font-smoothing:antialiased;
   background:
-    radial-gradient(900px 420px at 8% -8%, #FFE9D2 0%, rgba(255,233,210,0) 62%),
-    radial-gradient(760px 380px at 100% 4%, #E6F8F0 0%, rgba(230,248,240,0) 58%),
-    #FFF8F1;
+    radial-gradient(900px 420px at 8% -8%, #EFE9FF 0%, rgba(239,233,255,0) 62%),
+    radial-gradient(760px 380px at 100% 4%, #E1F8F0 0%, rgba(225,248,240,0) 58%),
+    #FDFCFF;
   overscroll-behavior-y:contain;
 }
 button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-align:inherit}
@@ -38,128 +42,135 @@ ul,ol{list-style:none}
 input{font:inherit}
 .app{max-width:480px;margin:0 auto;padding:14px 16px 110px}
 
+/* cute rounded display font for titles, buttons and badges */
+.btitle,.card-h h2,.sheet h2,.chip,.btn,.tab,.wt,.star,.hero-num,.redeem-big .n,.addbtn,.wact,.q,.banner,.dcell .dw
+  {font-family:'Jua','Gowun Dodum',-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-weight:400}
+
 /* top bar */
 .top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 2px 14px}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
-.logo{width:42px;height:42px;flex:0 0 auto;border-radius:14px;display:grid;place-items:center;font-size:22px;
-  background:linear-gradient(150deg,#FFD98A,#FFB25E);box-shadow:0 8px 16px -8px rgba(255,178,94,.95)}
-.btitle{font-size:17px;font-weight:800;letter-spacing:-.4px}
-.bsub{font-size:12px;color:var(--muted);font-weight:650;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.gbtn{width:42px;height:42px;flex:0 0 auto;border-radius:14px;background:#fff;border:1px solid #FBEEE4;
+.logo{width:46px;height:46px;flex:0 0 auto;border-radius:16px;overflow:hidden;
+  background:linear-gradient(150deg,#F4F0FF,#E2F8F1);border:1.5px solid #EFEAFB;
+  box-shadow:0 8px 16px -8px rgba(140,120,230,.6)}
+.logo svg{width:100%;height:100%;display:block}
+.btitle{font-size:18px;letter-spacing:-.2px;line-height:1.2}
+.bsub{font-size:12px;color:var(--muted);font-weight:650;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gbtn{width:42px;height:42px;flex:0 0 auto;border-radius:14px;background:#fff;border:1px solid #EFEAFB;
   box-shadow:var(--shadow-sm);display:grid;place-items:center;font-size:18px}
 
-/* hero */
+/* hero : 뀨뀨's coin pouch */
 .hero{position:relative;overflow:hidden;border-radius:26px;padding:17px 20px 16px;color:#fff;margin-bottom:14px;
-  background:linear-gradient(140deg,#FFC06A 0%,#FF8F52 48%,#F2703A 100%);
-  box-shadow:0 18px 32px -16px rgba(242,112,58,.85)}
-.hero::after{content:"";position:absolute;width:190px;height:190px;right:-62px;top:-96px;border-radius:50%;background:rgba(255,255,255,.17)}
-.hero::before{content:"";position:absolute;width:130px;height:130px;right:14px;bottom:-76px;border-radius:50%;background:rgba(255,255,255,.11)}
+  background:linear-gradient(140deg,#A79AF5 0%,#7C6CE0 52%,#6A59D4 100%);
+  box-shadow:0 18px 32px -16px rgba(108,92,196,.9)}
+.hero::after{content:"";position:absolute;width:190px;height:190px;right:-62px;top:-96px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero::before{content:"";position:absolute;width:130px;height:130px;right:120px;bottom:-76px;border-radius:50%;background:rgba(255,255,255,.11)}
+.hero-kkyu{position:absolute;right:4px;bottom:-8px;width:96px;height:96px;filter:drop-shadow(0 6px 10px rgba(50,35,110,.28))}
 .hero-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px;font-weight:750;letter-spacing:.1px}
 .hero-krw{font-size:12.5px;font-weight:850;background:rgba(255,255,255,.24);padding:4px 10px;border-radius:999px;white-space:nowrap}
-.hero-num{position:relative;font-size:44px;font-weight:900;letter-spacing:-2.4px;line-height:1.02;margin:5px 0 1px;font-variant-numeric:tabular-nums}
+.hero-num{position:relative;font-size:46px;letter-spacing:-1px;line-height:1.02;margin:5px 0 1px;font-variant-numeric:tabular-nums}
 .hero-num .unit{font-size:15px;font-weight:800;letter-spacing:0;margin-left:5px;opacity:.92}
-.hero-bar{position:relative;height:9px;border-radius:99px;background:rgba(255,255,255,.28);overflow:hidden;margin:11px 0 7px}
-.hero-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#FFF6D6,#FFDF7C);transition:width .55s cubic-bezier(.2,.9,.3,1)}
-.hero-cap{position:relative;font-size:12px;font-weight:750;opacity:.96}
+.hero-bar{position:relative;height:9px;border-radius:99px;background:rgba(255,255,255,.28);overflow:hidden;margin:11px 0 7px;margin-right:84px}
+.hero-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#C9F7E6,#6FE6C4);transition:width .55s cubic-bezier(.2,.9,.3,1)}
+.hero-cap{position:relative;font-size:12px;font-weight:750;opacity:.96;margin-right:84px}
 
 /* cards */
-.card{background:#fff;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);padding:16px;margin-bottom:14px}
+.card{background:#fff;border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow);padding:16px;margin-bottom:14px}
 .card-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
-.card-h h2{font-size:16px;font-weight:850;letter-spacing:-.35px}
+.card-h h2{font-size:17px;letter-spacing:-.2px}
 .sub{font-size:12.5px;color:var(--muted);font-weight:650;margin-top:2px}
-.chip{flex:0 0 auto;font-size:12.5px;font-weight:800;color:var(--primary-2);background:#FFF2E7;border-radius:999px;
+.chip{flex:0 0 auto;font-size:13px;color:var(--primary-2);background:var(--lav);border-radius:999px;
   padding:8px 12px;min-height:34px;display:inline-flex;align-items:center;gap:4px}
-.chip.plain{color:#8A7B74;background:#F7F1EC}
+.chip.plain{color:#7E7396;background:#F5F2FA}
 
 /* day strip */
 .strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin:2px 0 13px}
 .dcell{display:flex;flex-direction:column;align-items:center;gap:4px;padding:7px 0 6px;border-radius:14px;
-  background:#FFFBF7;border:1.5px solid #F7EBE1;min-height:56px;transition:.18s}
-.dcell .dw{font-size:10.5px;font-weight:850;color:#A8978E}
+  background:#FBFAFF;border:1.5px solid #EFEAF9;min-height:56px;transition:.18s}
+.dcell .dw{font-size:10.5px;color:#A79DC4}
 .dcell .dc{font-size:15px;line-height:19px;height:19px;min-height:19px}
-.dcell.on{border-color:#FFC08A;background:#FFF2E5;box-shadow:0 5px 12px -6px rgba(255,160,100,.8)}
+.dcell.on{border-color:#C9BDF6;background:#F1EDFE;box-shadow:0 5px 12px -6px rgba(140,120,230,.8)}
 .dcell.on .dw{color:var(--primary-2)}
-.dcell.got{background:#F1FBF6;border-color:#CDEEDF}
+.dcell.got{background:#EBFAF5;border-color:#C9EEDF}
 .dcell.got .dw{color:#2FBF9B}
 .dcell.future{opacity:.42}
 
 /* mission rows */
 .missions{display:flex;flex-direction:column;gap:9px}
 .mrow{display:flex;align-items:center;gap:12px;width:100%;padding:10px 14px 10px 10px;border-radius:18px;
-  background:#fff;border:1.5px solid #F7EBE1;box-shadow:0 3px 10px -6px rgba(197,133,96,.6);transition:transform .12s,background .18s}
+  background:#fff;border:1.5px solid #EFEAF9;box-shadow:0 3px 10px -6px rgba(110,94,200,.5);transition:transform .12s,background .18s}
 .mrow:active{transform:scale(.985)}
 .chk{width:42px;height:42px;flex:0 0 auto;border-radius:14px;display:grid;place-items:center;font-size:20px;font-weight:900;
-  color:#fff;background:#FFF8F2;border:2px dashed #E9D8CB;transition:all .18s}
+  color:#fff;background:#FBFAFF;border:2px dashed #DFD7F2;transition:all .18s}
 .mtext{display:flex;align-items:center;gap:8px;min-width:0;flex:1}
 .memoji{font-size:19px;line-height:1;flex:0 0 auto}
 .mtitle{font-size:15.5px;font-weight:750;letter-spacing:-.2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .mrow.done{background:#F2FCF8;border-color:#D2EFE3}
 .mrow.done .chk{background:linear-gradient(150deg,#63D6B4,#2FBF9B);border:2px solid transparent;box-shadow:0 7px 14px -6px rgba(47,191,155,.85)}
-.mrow.done .mtitle{color:#8FB3A7;text-decoration:line-through;text-decoration-thickness:1.5px}
+.mrow.done .mtitle{color:#8FA8A0;text-decoration:line-through;text-decoration-thickness:1.5px}
 
 /* banners */
 .banner{display:flex;align-items:center;gap:9px;margin-top:12px;padding:12px 14px;border-radius:16px;
-  font-size:13px;font-weight:800;background:#FFF6EA;color:#B4712F;line-height:1.35}
+  font-size:13px;background:#F3F0FE;color:#6555C7;line-height:1.35}
 .banner.ok{background:#EFFBF5;color:#1F9E7C}
-.banner.sun{background:linear-gradient(120deg,#FFF3D6,#FFE3BC);color:#A9662A;box-shadow:inset 0 0 0 1.5px #FFDCAF}
+.banner.sun{background:linear-gradient(120deg,#F3EDFF,#E9E1FD);color:#6555C7;box-shadow:inset 0 0 0 1.5px #D9CDF8}
 
 /* stars */
 .stars{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:11px}
-.star{aspect-ratio:1/1;border-radius:15px;display:grid;place-items:center;font-size:16px;font-weight:800;
-  background:#FFF8F1;border:1.5px dashed #EFE0D4;color:#DCC9BC}
+.star{aspect-ratio:1/1;border-radius:15px;display:grid;place-items:center;font-size:16px;
+  background:#FBFAFF;border:1.5px dashed #E5DEF4;color:#C9C0E2}
 .star.on{background:linear-gradient(150deg,#FFE79B,#FFC24D);border:1.5px solid #FFD470;color:#9A6A12;
   box-shadow:0 8px 14px -8px rgba(255,194,77,1)}
 
 /* week rows */
-.wrow{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:16px;background:#FFFCF9;
-  border:1.5px solid #F8EDE3;margin-bottom:8px}
-.wbadge{width:34px;height:34px;flex:0 0 auto;border-radius:12px;display:grid;place-items:center;font-size:13px;font-weight:900;
-  background:#FFF0E3;color:#E4713A}
+.wrow{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:16px;background:#FCFBFF;
+  border:1.5px solid #F1ECFA;margin-bottom:8px}
+.wbadge{width:34px;height:34px;flex:0 0 auto;border-radius:12px;display:grid;place-items:center;font-size:13px;
+  background:var(--lav);color:#6A59D4}
 .wbadge.sun{color:#E05555;background:#FFEEEE}
 .wbadge.sat{color:#4B7BD6;background:#EDF4FF}
 .wmain{flex:1;min-width:0}
-.wt{font-size:14px;font-weight:800;letter-spacing:-.2px}
+.wt{font-size:14px;letter-spacing:-.2px}
 .ws{font-size:11.5px;font-weight:700;color:var(--muted);margin-top:1px}
-.wact{flex:0 0 auto;font-size:11.5px;font-weight:850;color:var(--primary-2);background:#FFF2E7;border-radius:999px;padding:7px 11px;min-height:32px}
-.wact.lock{color:#C3B3A9;background:#F7F2EE}
-.wrow.today{background:#FFF9F3;border-color:#FFDDBE;box-shadow:0 6px 16px -12px rgba(242,112,58,.9)}
+.wact{flex:0 0 auto;font-size:12px;color:var(--primary-2);background:var(--lav);border-radius:999px;padding:7px 11px;min-height:32px}
+.wact.lock{color:#B4AACB;background:#F5F3FA}
+.wrow.today{background:#F8F6FF;border-color:#DCD2F8;box-shadow:0 6px 16px -12px rgba(108,92,196,.9)}
 
 /* buttons */
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border-radius:18px;
-  font-size:16px;font-weight:850;letter-spacing:-.2px;color:#fff;
-  background:linear-gradient(140deg,#FFA45C,#F2703A);box-shadow:0 14px 24px -12px rgba(242,112,58,1);transition:transform .12s}
+  font-size:16.5px;letter-spacing:0;color:#fff;
+  background:linear-gradient(140deg,#9A8BF2,#6A59D4);box-shadow:0 14px 24px -12px rgba(106,89,212,1);transition:transform .12s}
 .btn:active{transform:scale(.985)}
-.btn.ghost{background:#FFF3E9;color:var(--primary-2);box-shadow:none}
+.btn.ghost{background:#F1EDFE;color:var(--primary-2);box-shadow:none}
 .btn.mint{background:linear-gradient(140deg,#5FD3B2,#22B592);box-shadow:0 14px 24px -12px rgba(34,181,146,1)}
-.btn.soft{background:#F6F2EE;color:#6C7B75;box-shadow:none}
+.btn.soft{background:#F4F2F9;color:#6E6396;box-shadow:none}
 .btn[disabled]{opacity:.45;box-shadow:none;pointer-events:none}
 .btn.sm{min-height:44px;font-size:14px;border-radius:14px}
 
 /* segmented */
-.seg{display:flex;gap:5px;background:#F7EFE7;padding:5px;border-radius:16px;margin-bottom:14px}
-.seg button{flex:1;padding:10px 6px;border-radius:12px;font-size:12.5px;font-weight:800;color:#A8978E;min-height:42px}
-.seg button.on{background:#fff;color:var(--primary-2);box-shadow:0 3px 8px -2px rgba(197,133,96,.35)}
+.seg{display:flex;gap:5px;background:#F1EDFB;padding:5px;border-radius:16px;margin-bottom:14px}
+.seg button{flex:1;padding:10px 6px;border-radius:12px;font-size:12.5px;font-weight:800;color:#A79DC4;min-height:42px}
+.seg button.on{background:#fff;color:var(--primary-2);box-shadow:0 3px 8px -2px rgba(110,94,200,.35)}
 
 /* inputs */
-.input{width:100%;min-height:52px;border-radius:16px;border:1.5px solid #F0E0D3;background:#FFFCF9;
+.input{width:100%;min-height:52px;border-radius:16px;border:1.5px solid #E4DDF6;background:#FCFBFF;
   padding:0 14px;font-size:15.5px;font-weight:700;color:var(--ink);outline:none;transition:.15s}
-.input::placeholder{color:#C4B3A8;font-weight:650}
-.input:focus{border-color:#FFB478;background:#fff;box-shadow:0 0 0 4px rgba(255,180,120,.16)}
-.lbl{font-size:12px;font-weight:850;color:#A8978E;letter-spacing:.2px;margin:0 2px 7px}
+.input::placeholder{color:#C0B7D8;font-weight:650}
+.input:focus{border-color:#B9A5F5;background:#fff;box-shadow:0 0 0 4px rgba(160,140,240,.18)}
+.lbl{font-size:12px;font-weight:850;color:#A79DC4;letter-spacing:.2px;margin:0 2px 7px}
 
 /* tabs */
 .tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:480px;display:flex;gap:4px;
   padding:8px 12px calc(8px + env(safe-area-inset-bottom));z-index:50;
-  background:rgba(255,252,249,.94);backdrop-filter:blur(16px) saturate(1.2);border-top:1px solid #F6E9DE}
+  background:rgba(253,252,255,.94);backdrop-filter:blur(16px) saturate(1.2);border-top:1px solid #EFEAF9}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 4px 6px;border-radius:16px;
-  font-size:11px;font-weight:850;color:#B6A69C;min-height:52px;justify-content:center}
+  font-size:11px;color:#B0A7C8;min-height:52px;justify-content:center}
 .tab .i{font-size:19px;line-height:1;filter:grayscale(.55);opacity:.85}
-.tab.on{color:var(--primary-2);background:#FFF1E5}
+.tab.on{color:var(--primary-2);background:#F1EDFE}
 .tab.on .i{filter:none;opacity:1}
 
 /* toast */
 #toast{position:fixed;left:50%;bottom:100px;transform:translate(-50%,16px);z-index:90;max-width:86vw;
-  background:rgba(55,44,40,.95);color:#fff;padding:12px 18px;border-radius:16px;font-size:13.5px;font-weight:750;
+  background:rgba(58,48,92,.95);color:#fff;padding:12px 18px;border-radius:16px;font-size:13.5px;font-weight:750;
   text-align:center;opacity:0;pointer-events:none;transition:.24s;line-height:1.35}
 #toast.on{opacity:1;transform:translate(-50%,0)}
 
@@ -169,58 +180,58 @@ input{font:inherit}
 100%{transform:translate(var(--dx),var(--dy)) scale(1.1) rotate(var(--rot));opacity:0}}
 
 /* sheet */
-.overlay{position:fixed;inset:0;z-index:60;background:rgba(55,40,32,.34);display:flex;align-items:flex-end;justify-content:center;animation:fade .2s}
-.sheet{width:100%;max-width:480px;background:#FFFDFB;border-radius:26px 26px 0 0;padding:6px 18px calc(20px + env(safe-area-inset-bottom));
-  max-height:90dvh;overflow-y:auto;animation:up .26s cubic-bezier(.2,.9,.3,1);box-shadow:0 -12px 40px rgba(120,80,50,.22)}
-.grab{width:44px;height:5px;border-radius:99px;background:#EFDDD0;margin:6px auto 12px}
-.sheet h2{font-size:18px;font-weight:850;letter-spacing:-.45px}
+.overlay{position:fixed;inset:0;z-index:60;background:rgba(66,54,104,.35);display:flex;align-items:flex-end;justify-content:center;animation:fade .2s}
+.sheet{width:100%;max-width:480px;background:#FFFEFF;border-radius:26px 26px 0 0;padding:6px 18px calc(20px + env(safe-area-inset-bottom));
+  max-height:90dvh;overflow-y:auto;animation:up .26s cubic-bezier(.2,.9,.3,1);box-shadow:0 -12px 40px rgba(90,70,150,.25)}
+.grab{width:44px;height:5px;border-radius:99px;background:#E4DEF4;margin:6px auto 12px}
+.sheet h2{font-size:19px;letter-spacing:-.3px}
 .sheet .sub{margin-bottom:14px}
 @keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:translateY(0);opacity:1}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
 /* plan list */
 .plist{display:flex;flex-direction:column;gap:7px;margin:12px 0 4px}
-.pitem{display:flex;align-items:center;gap:10px;padding:9px 8px 9px 12px;border-radius:15px;background:#FFFCF9;border:1.5px solid #F8EDE3}
+.pitem{display:flex;align-items:center;gap:10px;padding:9px 8px 9px 12px;border-radius:15px;background:#FCFBFF;border:1.5px solid #F1ECFA}
 .pitem .pt{flex:1;font-size:14.5px;font-weight:750;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.del{width:34px;height:34px;flex:0 0 auto;border-radius:11px;display:grid;place-items:center;font-size:15px;color:#C0AEA3;background:#F8F2ED}
+.del{width:34px;height:34px;flex:0 0 auto;border-radius:11px;display:grid;place-items:center;font-size:15px;color:#AFA5C8;background:#F5F2FA}
 .emos{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .emos::-webkit-scrollbar{display:none}
-.emo{width:40px;height:40px;flex:0 0 auto;border-radius:13px;display:grid;place-items:center;font-size:19px;background:#FFF7F0;border:1.5px solid #F6E9DF}
-.emo.on{border-color:#FFC08A;background:#FFF1E4;box-shadow:0 4px 10px -6px rgba(255,150,90,.9)}
+.emo{width:40px;height:40px;flex:0 0 auto;border-radius:13px;display:grid;place-items:center;font-size:19px;background:#FBFAFF;border:1.5px solid #EFEAF9}
+.emo.on{border-color:#C9BDF6;background:#F1EDFE;box-shadow:0 4px 10px -6px rgba(140,120,230,.9)}
 .qs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.q{font-size:12.5px;font-weight:750;padding:8px 11px;border-radius:999px;background:#F7F2ED;color:#7E6E66;min-height:34px;display:inline-flex;align-items:center;gap:5px}
-.q:active{background:#FFEFE2}
+.q{font-size:12.5px;padding:8px 11px;border-radius:999px;background:#F5F3FA;color:#6E6396;min-height:34px;display:inline-flex;align-items:center;gap:5px}
+.q:active{background:#EDE8FB}
 .addrow{display:flex;gap:8px;margin-top:10px}
 .addrow .input{flex:1;min-width:0}
-.addbtn{width:56px;flex:0 0 auto;border-radius:16px;background:linear-gradient(140deg,#FFA45C,#F2703A);color:#fff;font-size:22px;
-  font-weight:800;box-shadow:0 10px 18px -10px rgba(242,112,58,1);display:grid;place-items:center}
+.addbtn{width:56px;flex:0 0 auto;border-radius:16px;background:linear-gradient(140deg,#9A8BF2,#6A59D4);color:#fff;font-size:22px;
+  box-shadow:0 10px 18px -10px rgba(106,89,212,1);display:grid;place-items:center}
 
 /* history */
 .hgroup{margin-bottom:13px}
-.hdate{font-size:11.5px;font-weight:850;color:#AC9B91;letter-spacing:.2px;margin:0 3px 7px}
-.hrow{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#FFFCF9;border:1px solid #F8EDE3;border-radius:14px;margin-bottom:6px}
+.hdate{font-size:11.5px;font-weight:850;color:#A79DC4;letter-spacing:.2px;margin:0 3px 7px}
+.hrow{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#FCFBFF;border:1px solid #F1ECFA;border-radius:14px;margin-bottom:6px}
 .hmain{flex:1;min-width:0}
 .hlabel{font-size:14px;font-weight:750}
-.htime{font-size:11px;color:#B6A69C;font-weight:700;margin-top:1px}
-.hamt{font-size:14.5px;font-weight:900;color:var(--mint);font-variant-numeric:tabular-nums;white-space:nowrap}
+.htime{font-size:11px;color:#B0A7C8;font-weight:700;margin-top:1px}
+.hamt{font-size:14.5px;font-weight:900;color:var(--mint-2);font-variant-numeric:tabular-nums;white-space:nowrap}
 .hamt.minus{color:var(--primary-2)}
 
 /* misc */
 .empty{text-align:center;padding:22px 8px 10px}
-.empty .e-emoji{font-size:40px;line-height:1}
+.empty .kk{width:84px;height:84px;margin:0 auto}
 .empty p{font-size:13.5px;color:var(--muted);font-weight:700;margin:9px 0 15px}
-.note{font-size:11.5px;color:#B2A199;font-weight:650;line-height:1.5;margin-top:10px}
-.kv{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:16px;background:#FFFCF9;border:1px solid #F8EDE3;margin-bottom:8px}
+.note{font-size:11.5px;color:#A79FBF;font-weight:650;line-height:1.5;margin-top:10px}
+.kv{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:16px;background:#FCFBFF;border:1px solid #F1ECFA;margin-bottom:8px}
 .kv .k{font-size:13.5px;font-weight:750}
 .kv .v{font-size:13.5px;font-weight:850;color:var(--primary-2)}
-.divider{height:1px;background:#F5EAE1;margin:14px 0}
-.tip{background:#FFF7EC;border-radius:16px;padding:12px 14px;font-size:12px;font-weight:700;color:#A9752F;line-height:1.55}
+.divider{height:1px;background:#F1ECFA;margin:14px 0}
+.tip{background:#F3F0FE;border-radius:16px;padding:12px 14px;font-size:12px;font-weight:700;color:#6555C7;line-height:1.55}
 .tip b{font-weight:900}
 .redeem-big{text-align:center;padding:6px 0 2px}
-.redeem-big .n{font-size:30px;font-weight:900;letter-spacing:-1px;color:var(--primary-2);font-variant-numeric:tabular-nums}
+.redeem-big .n{font-size:31px;letter-spacing:-.5px;color:var(--primary-2);font-variant-numeric:tabular-nums}
 .redeem-big .w{font-size:13px;font-weight:800;color:var(--muted);margin-top:2px}
 .qrow{display:flex;gap:7px;margin:12px 0}
-.qrow .q{flex:1;justify-content:center;padding:11px 6px;font-size:12.5px;font-weight:800;background:#FFF2E7;color:var(--primary-2)}
+.qrow .q{flex:1;justify-content:center;padding:11px 6px;font-size:12.5px;background:var(--lav);color:var(--primary-2)}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}}
 </style>
 </head>
@@ -228,10 +239,10 @@ input{font:inherit}
 <div class="app">
   <header class="top">
     <div class="brand">
-      <div class="logo">🪙</div>
+      <div class="logo" aria-hidden="true"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d='M50 15 C69 15 81 30 81 51 C81 71 67 84 50 84 C33 84 19 71 19 51 C19 30 31 15 50 15Z' fill='#FF9384'/><path d='M50 15 C49 8.5 55 5.5 60.2 7.6' fill='none' stroke='#FF9384' stroke-width='3.4' stroke-linecap='round'/><circle cx='61.8' cy='7.8' r='4.4' fill='#B9A5F5'/><circle cx='36' cy='50' r='6.4' fill='#4A3550'/><circle cx='64' cy='50' r='6.4' fill='#4A3550'/><circle cx='38.6' cy='47.2' r='2.2' fill='#FFF'/><circle cx='66.6' cy='47.2' r='2.2' fill='#FFF'/><circle cx='34.2' cy='52.8' r='1.3' fill='#FFF' opacity='.9'/><circle cx='62.2' cy='52.8' r='1.3' fill='#FFF' opacity='.9'/><ellipse cx='25.5' cy='60' rx='5.8' ry='4' fill='#FFB3C1' opacity='.9'/><ellipse cx='74.5' cy='60' rx='5.8' ry='4' fill='#FFB3C1' opacity='.9'/><path d='M44 60.5 Q50 67 56 60.5' fill='none' stroke='#4A3550' stroke-width='3.4' stroke-linecap='round'/></svg></div>
       <div style="min-width:0">
-        <div class="btitle">미션 코인</div>
-        <div class="bsub" id="bsub">매일 미션을 모두 끝내면 코인 1개!</div>
+        <div class="btitle">뀨뀨 미션 수행 대작전!</div>
+        <div class="bsub" id="bsub">뀨뀨와 매일 미션을 모두 끝내면 코인 1개!</div>
       </div>
     </div>
     <button class="gbtn" data-act="settings" aria-label="설정">⚙️</button>
@@ -459,7 +470,7 @@ function toast(msg){
 }
 function vibrate(p){ try { if (navigator.vibrate) navigator.vibrate(p); } catch (e) {} }
 function fireConfetti(big){
-  var emojis = big ? ['🎉','⭐','🪙','✨','🏆','🪙','🎊','⭐'] : ['⭐','🪙','✨','🪙'];
+  var emojis = big ? ['🎉','⭐','🪙','✨','💜','🪙','🎊','⭐'] : ['⭐','🪙','✨','💜'];
   var n = big ? 16 : 9;
   for (var i = 0; i < n; i++){
     (function(i){
@@ -479,6 +490,52 @@ function fireConfetti(big){
   }
 }
 
+/* ==========================================================================
+   마스코트 캐릭터 "뀨뀨" — 순도 높은 우리 앱 전용 SVG 그림 (외부 이미지 없음)
+   kind : 'face'(얼굴) · 'hero'(코인 든 뀨뀨) · 'cheer'(만세) · 'coin'(코인 안기)
+   ========================================================================== */
+var KK = {
+  EYE: '<circle cx="36" cy="50" r="6.4" fill="#4A3550"/><circle cx="64" cy="50" r="6.4" fill="#4A3550"/>' +
+       '<circle cx="38.6" cy="47.2" r="2.2" fill="#FFF"/><circle cx="66.6" cy="47.2" r="2.2" fill="#FFF"/>' +
+       '<circle cx="34.2" cy="52.8" r="1.3" fill="#FFF" opacity=".9"/><circle cx="62.2" cy="52.8" r="1.3" fill="#FFF" opacity=".9"/>',
+  CHEEK: '<ellipse cx="25.5" cy="60" rx="5.8" ry="4" fill="#FFB3C1" opacity=".9"/><ellipse cx="74.5" cy="60" rx="5.8" ry="4" fill="#FFB3C1" opacity=".9"/>',
+  MOUTH: '<path d="M44 60.5 Q50 67 56 60.5" fill="none" stroke="#4A3550" stroke-width="3.4" stroke-linecap="round"/>',
+  ANT: '<path d="M50 15 C49 8.5 55 5.5 60.2 7.6" fill="none" stroke="#FF9384" stroke-width="3.4" stroke-linecap="round"/><circle cx="61.8" cy="7.8" r="4.4" fill="#B9A5F5"/>',
+  BODY: '<path d="M50 15 C69 15 81 30 81 51 C81 71 67 84 50 84 C33 84 19 71 19 51 C19 30 31 15 50 15Z" fill="#FF9384"/>',
+  BELLY: '<ellipse cx="50" cy="69.5" rx="15.5" ry="11" fill="#FFEFE6" opacity=".95"/>',
+  FEET: '<ellipse cx="38.5" cy="84.5" rx="6.2" ry="3.8" fill="#F97F6F"/><ellipse cx="61.5" cy="84.5" rx="6.2" ry="3.8" fill="#F97F6F"/>',
+  STAR: 'M50 70.8 51.3 74.2 54.9 74.4 52.1 76.7 53.1 80.2 50 78.2 46.9 80.2 47.9 76.7 45.1 74.4 48.7 74.2Z'
+};
+function kkyu(kind){
+  var F = KK.BODY + KK.ANT + KK.EYE + KK.CHEEK + KK.MOUTH;
+  var wrap = function(inner, vb){
+    return '<svg viewBox="' + (vb || '0 0 100 100') + '" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" ' +
+      'style="display:block;width:100%;height:100%">' + inner + '</svg>';
+  };
+  if (kind === 'face') return wrap(F);
+  if (kind === 'hero') return wrap(
+    KK.BODY + KK.BELLY + KK.FEET +
+    '<path d="M33 63 Q30 70 37 74" fill="none" stroke="#FF9384" stroke-width="5" stroke-linecap="round"/>' +
+    '<path d="M67 63 Q70 70 63 74" fill="none" stroke="#FF9384" stroke-width="5" stroke-linecap="round"/>' +
+    '<circle cx="50" cy="77" r="9.6" fill="#FFD66E" stroke="#E8A83C" stroke-width="1.4"/>' +
+    '<path d="' + KK.STAR + '" fill="#C98A1E"/>' +
+    KK.EYE + KK.CHEEK + KK.MOUTH + KK.ANT);
+  if (kind === 'cheer') return wrap(
+    '<path d="M10 20 l1.8 4.2 4.2 1.8 -4.2 1.8 -1.8 4.2 -1.8 -4.2 -4.2 -1.8 4.2 -1.8z" fill="#B9A5F5"/>' +
+    '<path d="M88 16 l1.8 4.2 4.2 1.8 -4.2 1.8 -1.8 4.2 -1.8 -4.2 -4.2 -1.8 4.2 -1.8z" fill="#FFD66E"/>' +
+    '<path d="M27 55 Q17 50 14.5 38" fill="none" stroke="#FF9384" stroke-width="5.5" stroke-linecap="round"/>' +
+    '<path d="M73 55 Q83 50 85.5 38" fill="none" stroke="#FF9384" stroke-width="5.5" stroke-linecap="round"/>' +
+    KK.BODY + KK.BELLY + KK.FEET + KK.EYE + KK.CHEEK + KK.MOUTH + KK.ANT);
+  if (kind === 'coin') return wrap(
+    KK.BODY + KK.FEET +
+    '<path d="M31 61 Q29 71 39 74" fill="none" stroke="#FF9384" stroke-width="5" stroke-linecap="round"/>' +
+    '<path d="M69 61 Q71 71 61 74" fill="none" stroke="#FF9384" stroke-width="5" stroke-linecap="round"/>' +
+    '<circle cx="50" cy="77.5" r="10.2" fill="#FFD66E" stroke="#E8A83C" stroke-width="1.5"/>' +
+    '<path d="' + KK.STAR + '" fill="#C98A1E"/>' +
+    KK.EYE + KK.CHEEK + KK.MOUTH + KK.ANT);
+  return wrap(F);
+}
+
 /* ========================================================================
    화면 렌더
    ======================================================================== */
@@ -491,7 +548,7 @@ function render(){
 
   var name = (S.childName || '').trim();
   var bsub = document.getElementById('bsub');
-  if (bsub) bsub.textContent = name ? name + '의 미션 · 매일 모두 끝내면 코인 1개!' : '매일 미션을 모두 끝내면 코인 1개!';
+  if (bsub) bsub.textContent = name ? name + '의 미션 · 매일 모두 끝내면 코인 1개!' : '뀨뀨와 매일 미션을 모두 끝내면 코인 1개!';
 
   var root = document.getElementById('view');
   if (root){
@@ -525,6 +582,7 @@ function heroHTML(bal){
   if (bal >= REDEEM_MIN) cap = '🎉 현금으로 바꿀 수 있어요!';
   else cap = (REDEEM_MIN - bal) + '코인 더 모으면 현금으로 바꿀 수 있어요';
   return '<section class="hero" aria-label="내 코인">' +
+    '<div class="hero-kkyu" aria-hidden="true">' + kkyu('hero') + '</div>' +
     '<div class="hero-top"><span>🪙 내 코인</span><span class="hero-krw">' + won(bal * COIN_WON) + '</span></div>' +
     '<div class="hero-num">' + num(bal) + '<span class="unit">코인</span></div>' +
     '<div class="hero-bar"><i style="width:' + pct + '%"></i></div>' +
@@ -586,8 +644,8 @@ function viewToday(today){
     var lastMon = addDays(mon, -7);
     var lastW = S.weeks[lastMon];
     var canCopy = !!(lastW && lastW.missions && lastW.missions.length);
-    out += '<div class="empty"><div class="e-emoji">📝</div>' +
-      '<p>이번 주 미션을 먼저 정해 볼까요?<br>내가 정한 미션을 매일 체크하면 코인이 쌓여요.</p>' +
+    out += '<div class="empty"><div class="kk" aria-hidden="true">' + kkyu('cheer') + '</div>' +
+      '<p>이번 주 미션을 정해 볼까요?<br>뀨뀨랑 함께라면 금방 끝나요!</p>' +
       '<button class="btn" data-act="plan">이번 주 미션 정하기</button>' +
       (canCopy ? '<button class="btn ghost sm" style="margin-top:8px" data-act="copyLast">지난 주 미션 그대로 쓰기</button>' : '') +
       '</div>';
@@ -747,8 +805,8 @@ function viewWallet(today){
       '<span class="chip plain" style="pointer-events:none">' + num(bal) + '코인</span></div>';
 
   if (!S.ledger.length){
-    out += '<div class="empty" style="padding:18px 8px 6px"><div class="e-emoji">🪙</div>' +
-      '<p>아직 코인 내역이 없어요.<br>미션을 모두 체크하면 여기에 쌓여요!</p></div>';
+    out += '<div class="empty" style="padding:18px 8px 6px"><div class="kk" aria-hidden="true">' + kkyu('coin') + '</div>' +
+      '<p>아직 코인 내역이 없어요.<br>미션을 모두 체크하면 뀨뀨가 코인을 가져다줄 거예요!</p></div>';
   } else {
     var sorted = S.ledger.slice().sort(function(a, b){
       if (a.dateKey !== b.dateKey) return a.dateKey < b.dateKey ? 1 : -1;
@@ -820,8 +878,8 @@ function planSheetHTML(){
           '<span class="pt">' + esc(m.title) + '</span>' +
           '<button class="del" data-act="delMission" data-mid="' + m.id + '" aria-label="' + esc(m.title) + ' 빼기">✕</button></div>';
       }).join('') + '</div>'
-    : '<div class="empty" style="padding:14px 8px 6px"><div class="e-emoji">🌱</div>' +
-      '<p>아직 미션이 없어요. 아래에서 하나씩 더해 보세요!</p></div>';
+    : '<div class="empty" style="padding:14px 8px 6px"><div class="kk" style="width:64px;height:64px" aria-hidden="true">' + kkyu('cheer') + '</div>' +
+      '<p>아직 미션이 없어요. 뀨뀨랑 하나씩 더해 보세요!</p></div>';
 
   var avail = QUICK.filter(function(q){
     return !w.missions.some(function(m){ return m.title === q.t; });
@@ -868,7 +926,7 @@ function settingsSheetHTML(){
     '<button class="btn ghost sm" data-act="reset" style="color:#D9534F;background:#FDEEEC">모든 기록 지우기</button>' +
     '<p class="note">코인, 미션, 내역이 모두 지워져요. 되돌릴 수 없어요.</p>' +
     '<button class="btn" style="margin-top:14px" data-act="closeSheet">닫기</button>' +
-    '<p class="note" style="text-align:center;margin-top:10px">미션 코인 · 인터넷 없이도 열려요</p>';
+    '<p class="note" style="text-align:center;margin-top:10px">뀨뀨 미션 수행 대작전! · 인터넷 없이도 열려요</p>';
 }
 
 function redeemSheetHTML(){
@@ -904,11 +962,11 @@ function onToggle(date, mid){
     if (r.weekly){
       fireConfetti(true);
       vibrate([30, 50, 30, 50, 80]);
-      toast('🎉 일주일 개근! 코인 +1과 보너스 +3까지 받았어요');
+      toast('🎉 일주일 개근! 뀨뀨가 보너스 +3코인까지 챙겨왔어요');
     } else {
       fireConfetti(false);
       vibrate(35);
-      toast('⭐ 미션 완성! 코인 +1을 받았어요');
+      toast('⭐ 뀨뀨가 코인 +1을 가져왔어요!');
     }
   } else if (!r.checked && r.wasAwarded){
     toast('체크를 풀어도 이미 받은 코인은 그대로예요');
@@ -945,7 +1003,7 @@ function exportJSON(){
     var blob = new Blob([JSON.stringify(S, null, 2)], { type: 'application/json' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = '미션코인-백업-' + todayISO() + '.json';
+    a.download = '뀨뀨미션-백업-' + todayISO() + '.json';
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -1117,7 +1175,7 @@ document.addEventListener('input', function(ev){
   if (t.id === 'mTitle'){ draft = t.value; return; }
   if (t.id === 'kidNameInput'){ S.childName = t.value.slice(0, 12); save();
     var b = document.getElementById('bsub');
-    if (b) b.textContent = (S.childName || '').trim() ? S.childName + '의 미션 · 매일 모두 끝내면 코인 1개!' : '매일 미션을 모두 끝내면 코인 1개!';
+    if (b) b.textContent = (S.childName || '').trim() ? S.childName + '의 미션 · 매일 모두 끝내면 코인 1개!' : '뀨뀨와 매일 미션을 모두 끝내면 코인 1개!';
     return; }
   if (t.id === 'rAmount'){ updateRedeemPreview(); return; }
 });
