@@ -855,7 +855,7 @@ function settingsSheetHTML(){
     '<div class="lbl">아이 이름</div>' +
     '<input class="input" id="kidNameInput" placeholder="예: 지우" maxlength="12" value="' + esc(S.childName) + '" autocomplete="off" style="margin-bottom:14px">' +
     '<div class="kv"><span class="k">🪙 코인</span><span class="v">' + num(Logic.balance(S)) + '개 · ' + won(Logic.balance(S) * COIN_WON) + '</span></div>' +
-    '<div class="kv"><span class="k">📅 기록한 주</span><span class="v">' + Object.keys(S.weeks).length + '주</span></div>' +
+    '<div class="kv"><span class="k">📅 기록한 주</span><span class="v">' + Object.keys(S.weeks).filter(function(k){ return S.weeks[k].missions && S.weeks[k].missions.length > 0; }).length + '주</span></div>' +
     '<div class="kv"><span class="k">💸 현금 사용</span><span class="v">' + S.redemptions.length + '회</span></div>' +
     '<div class="divider"></div>' +
     '<div class="lbl">백업</div>' +
