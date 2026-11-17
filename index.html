@@ -151,6 +151,19 @@ input{font:inherit}
 .seg button{flex:1;padding:10px 6px;border-radius:12px;font-size:12.5px;font-weight:800;color:#A79DC4;min-height:42px}
 .seg button.on{background:#fff;color:var(--primary-2);box-shadow:0 3px 8px -2px rgba(110,94,200,.35)}
 
+/* plan : day-of-week selector */
+.pdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin:2px 0 12px}
+.pday{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 0 6px;border-radius:13px;
+  background:#FBFAFF;border:1.5px solid #EFEAF9;transition:.15s}
+.pday .dw{font-family:'Jua','Gowun Dodum',-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-weight:400;font-size:12.5px;color:#A79DC4}
+.pday .dw.sun{color:#E05555}.pday .dw.sat{color:#4B7BD6}
+.pday .dc{font-size:9.5px;color:#C0B7D8;font-weight:800;font-variant-numeric:tabular-nums}
+.pday .cnt{font-size:10px;font-weight:900;min-width:17px;padding:0 4px;border-radius:9px;background:#F1EDFB;color:#C9C0E2;line-height:15px;font-variant-numeric:tabular-nums}
+.pday .cnt.has{background:var(--lav);color:var(--primary-2)}
+.pday.on{border-color:#C9BDF6;background:#F1EDFE;box-shadow:0 5px 12px -6px rgba(140,120,230,.8)}
+.pday.on .dw{color:var(--primary-2)}
+.pday:active{transform:scale(.96)}
+
 /* inputs */
 .input{width:100%;min-height:52px;border-radius:16px;border:1.5px solid #E4DDF6;background:#FCFBFF;
   padding:0 14px;font-size:15.5px;font-weight:700;color:var(--ink);outline:none;transition:.15s}
@@ -309,6 +322,7 @@ function ensureWeek(S, mon){
   var w = S.weeks[mon];
   if (!Array.isArray(w.missions)) w.missions = [];
   if (!w.days || typeof w.days !== 'object') w.days = {};
+  if (!w.dayMissions || typeof w.dayMissions !== 'object' || Array.isArray(w.dayMissions)) w.dayMissions = {};
   var ds = weekDates(mon);
   for (var i = 0; i < ds.length; i++){
     var d = ds[i];
@@ -318,11 +332,36 @@ function ensureWeek(S, mon){
   return w;
 }
 
+// 그날의 미션 목록(읽기 전용). 요일별 목록이 없으면 옛 방식(주 공통 missions)을 그대로 쓴다.
+function dayList(w, date){
+  if (w.dayMissions && Object.prototype.hasOwnProperty.call(w.dayMissions, date) && Array.isArray(w.dayMissions[date])){
+    return w.dayMissions[date];
+  }
+  return w.missions;
+}
+
+// 그날 목록을 고치기 시작할 때 호출: 주 공통 목록을 그날 전용으로 복사해 놓고 나서 고친다.
+function dayListRW(S, mon, date){
+  var w = ensureWeek(S, mon);
+  if (!w.dayMissions[date]){
+    w.dayMissions[date] = w.missions.map(function(m){ return { id: m.id, title: m.title, emoji: m.emoji || '⭐' }; });
+  }
+  return w.dayMissions[date];
+}
+
+function weekHasMissions(w){
+  if (w.missions && w.missions.length) return true;
+  var dm = w.dayMissions || {};
+  for (var k in dm) if (dm[k] && dm[k].length) return true;
+  return false;
+}
+
 function dayStats(w, date){
   var day = w.days[date] || { done: {} };
-  var total = w.missions.length;
+  var list = dayList(w, date);
+  var total = list.length;
   var done = 0;
-  for (var i = 0; i < total; i++) if (day.done[w.missions[i].id]) done++;
+  for (var i = 0; i < total; i++) if (day.done[list[i].id]) done++;
   return { total: total, done: done, complete: total > 0 && done === total };
 }
 
@@ -351,7 +390,7 @@ var Logic = {
 
     var weekly = false;
     var all = weekDates(mon).every(function(d){ return w.days[d] && w.days[d].awarded; });
-    if (all && !w.bonus && w.missions.length > 0){
+    if (all && !w.bonus && weekDates(mon).every(function(d){ return dayList(w, d).length > 0; })){
       w.bonus = true;
       w.bonusAt = stampNow();
       weekly = true;
@@ -366,7 +405,7 @@ var Logic = {
     if (date > today) return null;
     var mon = mondayOf(date);
     var w = ensureWeek(S, mon);
-    var exists = w.missions.some(function(m){ return m.id === mid; });
+    var exists = dayList(w, date).some(function(m){ return m.id === mid; });
     if (!exists) return null;
     var day = w.days[date];
     var wasAwarded = !!day.awarded;
@@ -377,30 +416,31 @@ var Logic = {
     return res;
   },
 
-  addMission: function(S, mon, title, emoji){
+  addMission: function(S, mon, date, title, emoji){
     var w = ensureWeek(S, mon);
+    var list = dayListRW(S, mon, date);
     var t = String(title || '').replace(/\s+/g, ' ').trim();
     if (!t) return { ok: false, msg: '미션 이름을 적어 주세요' };
     if (t.length > 20) t = t.slice(0, 20);
-    if (w.missions.length >= MAX_MISSIONS) return { ok: false, msg: '미션은 ' + MAX_MISSIONS + '개까지 정할 수 있어요' };
-    var dup = w.missions.some(function(m){ return m.title === t; });
-    if (dup) return { ok: false, msg: '이미 있는 미션이에요' };
-    w.missions.push({ id: uid(), title: t, emoji: emoji || '⭐' });
+    if (list.length >= MAX_MISSIONS) return { ok: false, msg: '하루 미션은 ' + MAX_MISSIONS + '개까지 정할 수 있어요' };
+    var dup = list.some(function(m){ return m.title === t; });
+    if (dup) return { ok: false, msg: '그날 이미 있는 미션이에요' };
+    list.push({ id: uid(), title: t, emoji: emoji || '⭐' });
     if (!w.plannedAt) w.plannedAt = stampNow();
     return { ok: true };
   },
 
-  removeMission: function(S, mon, id, today){
+  removeMission: function(S, mon, date, id, today){
     var w = ensureWeek(S, mon);
+    var list = dayListRW(S, mon, date);
     var idx = -1;
-    for (var i = 0; i < w.missions.length; i++) if (w.missions[i].id === id) { idx = i; break; }
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) { idx = i; break; }
     if (idx < 0) return { ok: false };
-    var removed = w.missions.splice(idx, 1)[0];
-    var ds = weekDates(mon);
-    for (var j = 0; j < ds.length; j++) delete w.days[ds[j]].done[id];
-    // 미션을 빼서 오늘 미션이 모두 채워졌다면 오늘 몫을 지급
+    var removed = list.splice(idx, 1)[0];
+    if (w.days[date] && w.days[date].done) delete w.days[date].done[id];
+    // 미션을 빼서 그날 미션이 모두 채워졌다면 그날 몫을 지급
     var a = null;
-    if (mon === mondayOf(today)) a = this.tryAward(S, mon, today, today);
+    if (date === today) a = this.tryAward(S, mon, today, today);
     return { ok: true, removed: removed, award: a };
   },
 
@@ -441,6 +481,7 @@ var view = 'today';          // today | week | wallet
 var cursor = null;           // 오늘 보기에서 보고 있는 날짜
 var sheet = null;            // plan | settings | redeem | null
 var planWeek = null;         // 미션 정기 화면의 주(월요일)
+var planDay = null;          // 미션 정기 화면에서 고른 날짜
 var draft = '';              // 미션 입력 중인 글자
 var draftEmoji = '⭐';
 var redeemInput = null;      // 현금 사용 금액 입력값
@@ -620,7 +661,7 @@ function viewToday(today){
   if (wdOf(today) === '일'){
     var nextMon = addDays(mon, 7);
     var nextW = ensureWeek(S, nextMon);
-    if (!nextW.missions.length){
+    if (!weekHasMissions(nextW)){
       out += '<div class="card" style="padding:0;border:0;background:none;box-shadow:none;margin-bottom:14px">' +
         '<div class="banner sun" style="margin:0">📅 <span>오늘은 일요일! <b>다음 주 미션을 정하는 날</b>이에요.</span>' +
         '</div>' +
@@ -643,14 +684,14 @@ function viewToday(today){
   if (!st.total){
     var lastMon = addDays(mon, -7);
     var lastW = S.weeks[lastMon];
-    var canCopy = !!(lastW && lastW.missions && lastW.missions.length);
+    var canCopy = !!(lastW && weekHasMissions(lastW)) && !weekHasMissions(w);
     out += '<div class="empty"><div class="kk" aria-hidden="true">' + kkyu('cheer') + '</div>' +
-      '<p>이번 주 미션을 정해 볼까요?<br>뀨뀨랑 함께라면 금방 끝나요!</p>' +
-      '<button class="btn" data-act="plan">이번 주 미션 정하기</button>' +
+      '<p>' + (isToday ? '오늘 미션이 아직 없어요.<br>뀨뀨랑 함께라면 금방 끝나요!' : longDate(cursor) + ' 미션이 아직 없어요.') + '</p>' +
+      '<button class="btn" data-act="goPlanDay" data-date="' + cursor + '">' + (isToday ? '오늘 미션 정하기' : longDate(cursor) + ' 미션 정하기') + '</button>' +
       (canCopy ? '<button class="btn ghost sm" style="margin-top:8px" data-act="copyLast">지난 주 미션 그대로 쓰기</button>' : '') +
       '</div>';
   } else {
-    out += '<div class="missions">' + w.missions.map(function(m){
+    out += '<div class="missions">' + dayList(w, cursor).map(function(m){
       var on = !!day.done[m.id];
       var lock = cursor > today;
       return '<button class="mrow ' + (on ? 'done' : '') + '" data-act="toggle" data-mid="' + m.id + '" data-date="' + cursor + '"' +
@@ -733,14 +774,14 @@ function viewWeek(today){
     var badgeCls = 'wbadge' + (wdOf(d) === '일' ? ' sun' : wdOf(d) === '토' ? ' sat' : '');
     var status;
     if (awarded) status = '⭐ 완료 · 코인 +1';
-    else if (future) status = st.total ? '아직 안 온 날' : '미션 없음';
+    else if (future) status = st.total ? '미션 ' + st.total + '개 · 아직 안 온 날' : '미션 없음';
     else if (st.total === 0) status = '미션 없음';
-    else status = st.done + '/' + st.total + ' 완료';
+    else status = '미션 ' + st.total + '개 · ' + st.done + '/' + st.total + ' 완료';
     var act = future
       ? '<span class="wact lock">🔒</span>'
       : (d === today ? '<button class="wact" data-act="goDay" data-date="' + d + '">체크</button>'
                      : '<button class="wact" data-act="goDay" data-date="' + d + '">보기</button>');
-    return '<div class="' + cls + '">' +
+    return '<div class="' + cls + '" style="cursor:pointer" data-act="goPlanDay" data-date="' + d + '" title="' + longDate(d) + ' 미션 정하기·보기">' +
       '<div class="' + badgeCls + '">' + wdOf(d) + '</div>' +
       '<div class="wmain"><div class="wt">' + mdOf(d) + (d === today ? ' · 오늘' : '') + '</div>' +
       '<div class="ws">' + status + '</div></div>' + act +
@@ -749,14 +790,21 @@ function viewWeek(today){
 
   out += '</section>';
 
-  // 이번 주 미션 목록
+  // 요일별 미션 목록
   out += '<section class="card">' +
-    '<div class="card-h" style="margin-bottom:8px"><div><h2>이번 주 미션</h2>' +
-      '<p class="sub">' + w.missions.length + '개 · 하루 모두 끝내면 +1코인</p></div></div>';
-  if (w.missions.length){
-    out += '<div class="plist" style="margin-top:4px">' + w.missions.map(function(m){
-      return '<div class="pitem"><span class="memoji">' + (m.emoji || '⭐') + '</span><span class="pt">' + esc(m.title) + '</span></div>';
-    }).join('') + '</div>';
+    '<div class="card-h" style="margin-bottom:8px"><div><h2>요일별 미션</h2>' +
+      '<p class="sub">요일마다 다른 미션을 정할 수 있어요</p></div></div>';
+  var anyDay = weekDates(mon).some(function(d){ return dayList(w, d).length > 0; });
+  if (anyDay){
+    out += weekDates(mon).filter(function(d){ return dayList(w, d).length > 0; }).map(function(d){
+      var l = dayList(w, d);
+      return '<button class="wrow" style="width:100%;text-align:left" data-act="goPlanDay" data-date="' + d + '">' +
+        '<div class="wbadge' + (wdOf(d) === '일' ? ' sun' : wdOf(d) === '토' ? ' sat' : '') + '">' + wdOf(d) + '</div>' +
+        '<div class="wmain"><div class="wt">' + mdOf(d) + ' (' + wdOf(d) + ') · 미션 ' + l.length + '개</div>' +
+        '<div class="ws">' + l.map(function(m){ return (m.emoji || '⭐') + ' ' + esc(m.title); }).join(' · ') + '</div></div>' +
+        '<span class="wact">수정</span>' +
+      '</button>';
+    }).join('');
   } else {
     out += '<p class="sub">아직 정한 미션이 없어요.</p>';
   }
@@ -864,34 +912,55 @@ function planSheetHTML(){
   var curMon = mondayOf(today);
   var nextMon = addDays(curMon, 7);
   if (!planWeek || (planWeek !== curMon && planWeek !== nextMon)) planWeek = curMon;
-  var w = ensureWeek(S, planWeek);
   var isNext = planWeek === nextMon;
+  if (!planDay || mondayOf(planDay) !== planWeek){
+    planDay = (today >= planWeek && today <= addDays(planWeek, 6)) ? today : planWeek;
+  }
+  var w = ensureWeek(S, planWeek);
+  var dlist = dayList(w, planDay);
 
   var seg = '<div class="seg">' +
     '<button class="' + (!isNext ? 'on' : '') + '" data-act="planWeek" data-week="' + curMon + '">이번 주 ' + mdOf(curMon) + '~' + mdOf(addDays(curMon,6)) + '</button>' +
     '<button class="' + (isNext ? 'on' : '') + '" data-act="planWeek" data-week="' + nextMon + '">다음 주 ' + mdOf(nextMon) + '~' + mdOf(addDays(nextMon,6)) + '</button>' +
   '</div>';
 
-  var list = w.missions.length
-    ? '<div class="plist">' + w.missions.map(function(m){
+  var daysRow = '<div class="pdays" role="tablist" aria-label="요일 고르기">' + weekDates(planWeek).map(function(d){
+    var n = dayList(w, d).length;
+    var wd = wdOf(d);
+    return '<button class="pday' + (d === planDay ? ' on' : '') + '" data-act="pickPlanDay" data-date="' + d + '"' +
+      ' role="tab" aria-selected="' + (d === planDay) + '" aria-label="' + longDate(d) + ' 미션 ' + n + '개">' +
+      '<span class="dw' + (wd === '일' ? ' sun' : wd === '토' ? ' sat' : '') + '">' + wd + '</span>' +
+      '<span class="dc">' + mdOf(d) + '</span>' +
+      '<span class="cnt' + (n ? ' has' : '') + '">' + (n || '·') + '</span></button>';
+  }).join('') + '</div>';
+
+  var list = dlist.length
+    ? '<div class="plist">' + dlist.map(function(m){
         return '<div class="pitem"><span class="memoji">' + (m.emoji || '⭐') + '</span>' +
           '<span class="pt">' + esc(m.title) + '</span>' +
-          '<button class="del" data-act="delMission" data-mid="' + m.id + '" aria-label="' + esc(m.title) + ' 빼기">✕</button></div>';
+          '<button class="del" data-act="delMission" data-mid="' + m.id + '" aria-label="' + wdOf(planDay) + '요일 ' + esc(m.title) + ' 빼기">✕</button></div>';
       }).join('') + '</div>'
     : '<div class="empty" style="padding:14px 8px 6px"><div class="kk" style="width:64px;height:64px" aria-hidden="true">' + kkyu('cheer') + '</div>' +
-      '<p>아직 미션이 없어요. 뀨뀨랑 하나씩 더해 보세요!</p></div>';
+      '<p>' + longDate(planDay) + ' 미션이 없어요.<br>뀨뀨랑 하나씩 더해 보세요!</p></div>';
 
   var avail = QUICK.filter(function(q){
-    return !w.missions.some(function(m){ return m.title === q.t; });
+    return !dlist.some(function(m){ return m.title === q.t; });
   }).slice(0, 8);
 
+  var helpers = [];
+  var lwMon0 = addDays(planWeek, -7), lwW0 = S.weeks[lwMon0];
+  var lwSame = lwW0 ? dayList(lwW0, addDays(planDay, -7)) : [];
+  if (lwSame.length) helpers.push('<button class="q" data-act="copyFromLastWeekDay">📥 지난 주 ' + wdOf(planDay) + '요일 불러오기</button>');
+  if (dlist.length) helpers.push('<button class="q" data-act="copyDayToAll">📋 모든 요일에 똑같이</button>');
+  var helpersHTML = helpers.length ? '<div class="qs" style="margin-top:10px">' + helpers.join('') + '</div>' : '';
+
   return '<h2>' + (isNext ? '다음 주' : '이번 주') + ' 미션 정하기</h2>' +
-    '<p class="sub">내가 정한 미션이에요. 하루에 모두 끝내면 코인 1개, 일주일 내내 끝내면 +3코인!</p>' +
-    seg +
-    '<div class="lbl">' + (isNext ? '다음 주' : '이번 주') + ' 미션 ' + w.missions.length + '개</div>' +
-    list +
+    '<p class="sub">요일을 눌러 그날의 미션을 따로 정할 수 있어요. 하루 모두 끝내면 코인 1개, 일주일 내내 끝내면 +3코인!</p>' +
+    seg + daysRow +
+    '<div class="lbl">📋 ' + longDate(planDay) + ' 미션 ' + dlist.length + '개</div>' +
+    list + helpersHTML +
     '<div class="divider"></div>' +
-    '<div class="lbl">새 미션 추가</div>' +
+    '<div class="lbl">새 미션 추가 · ' + wdOf(planDay) + '요일에 더해요</div>' +
     '<div class="emos">' + EMOJIS.map(function(e){
       return '<button class="emo ' + (draftEmoji === e ? 'on' : '') + '" data-act="pickEmoji" data-emoji="' + e + '" aria-label="아이콘 ' + e + '">' + e + '</button>';
     }).join('') + '</div>' +
@@ -913,7 +982,7 @@ function settingsSheetHTML(){
     '<div class="lbl">아이 이름</div>' +
     '<input class="input" id="kidNameInput" placeholder="예: 지우" maxlength="12" value="' + esc(S.childName) + '" autocomplete="off" style="margin-bottom:14px">' +
     '<div class="kv"><span class="k">🪙 코인</span><span class="v">' + num(Logic.balance(S)) + '개 · ' + won(Logic.balance(S) * COIN_WON) + '</span></div>' +
-    '<div class="kv"><span class="k">📅 기록한 주</span><span class="v">' + Object.keys(S.weeks).filter(function(k){ return S.weeks[k].missions && S.weeks[k].missions.length > 0; }).length + '주</span></div>' +
+    '<div class="kv"><span class="k">📅 기록한 주</span><span class="v">' + Object.keys(S.weeks).filter(function(k){ return weekHasMissions(S.weeks[k]); }).length + '주</span></div>' +
     '<div class="kv"><span class="k">💸 현금 사용</span><span class="v">' + S.redemptions.length + '회</span></div>' +
     '<div class="divider"></div>' +
     '<div class="lbl">백업</div>' +
@@ -973,13 +1042,19 @@ function onToggle(date, mid){
   }
 }
 
-function setPlanWeek(mon){ planWeek = mon; draft = ''; render(); }
+function setPlanWeek(mon){
+  planWeek = mon;
+  var t = todayISO();
+  planDay = (t >= mon && t <= addDays(mon, 6)) ? t : mon;
+  draft = ''; render();
+}
 
 function addMission(explicitTitle){
   var input = document.getElementById('mTitle');
   var title = (typeof explicitTitle === 'string') ? explicitTitle : (input ? input.value : draft);
   var target = planWeek || mondayOf(todayISO());
-  var r = Logic.addMission(S, target, title, draftEmoji);
+  var day = (planDay && mondayOf(planDay) === target) ? planDay : target;
+  var r = Logic.addMission(S, target, day, title, draftEmoji);
   if (!r.ok){ toast(r.msg); return; }
   draft = ''; draftEmoji = '⭐';
   render();
@@ -989,11 +1064,12 @@ function addMission(explicitTitle){
 
 function delMission(mid){
   var target = planWeek || mondayOf(todayISO());
+  var day = (planDay && mondayOf(planDay) === target) ? planDay : target;
   var w = ensureWeek(S, target);
-  var m = w.missions.filter(function(x){ return x.id === mid; })[0];
+  var m = dayList(w, day).filter(function(x){ return x.id === mid; })[0];
   if (!m) return;
-  if (!window.confirm('"' + m.title + '" 미션을 뺄까요?')) return;
-  Logic.removeMission(S, target, mid, todayISO());
+  if (!window.confirm('"' + m.title + '" 미션을 ' + wdOf(day) + '요일에서 뺄까요?')) return;
+  Logic.removeMission(S, target, day, mid, todayISO());
   render();
   toast('미션을 뺐어요');
 }
@@ -1031,7 +1107,7 @@ function importJSON(file){
 function resetAll(){
   if (!window.confirm('모든 코인·미션·내역을 지우고 처음부터 시작할까요? 되돌릴 수 없어요.')) return;
   S = emptyState();
-  sheet = null; cursor = null; planWeek = null;
+  sheet = null; cursor = null; planWeek = null; planDay = null;
   save(); render();
   toast('처음부터 다시 시작해요');
 }
@@ -1103,7 +1179,54 @@ document.addEventListener('click', function(ev){
     case 'plan':
       sheet = 'plan';
       planWeek = el.dataset.week || (wdOf(todayISO()) === '일' ? addDays(mondayOf(todayISO()), 7) : mondayOf(todayISO()));
+      planDay = (todayISO() >= planWeek && todayISO() <= addDays(planWeek, 6)) ? todayISO() : planWeek;
       draft = ''; render(); break;
+
+    case 'pickPlanDay': {
+      var curPD = document.getElementById('mTitle');
+      if (curPD) draft = curPD.value;
+      planDay = el.dataset.date; render();
+      var fPD = document.getElementById('mTitle');
+      if (fPD) fPD.focus();
+      break;
+    }
+
+    case 'goPlanDay':
+      sheet = 'plan';
+      planWeek = mondayOf(el.dataset.date);
+      planDay = el.dataset.date;
+      draft = ''; render();
+      window.scrollTo({ top: 0, behavior: 'auto' }); break;
+
+    case 'copyFromLastWeekDay': {
+      if (!planDay){ break; }
+      var lwDay = addDays(planDay, -7), lwMon = mondayOf(lwDay);
+      var lwW = S.weeks[lwMon];
+      var srcLW = lwW ? dayList(lwW, lwDay) : [];
+      if (!srcLW.length){ toast('지난 주 ' + wdOf(planDay) + '요일에 미션이 없어요'); break; }
+      var dstLW = dayListRW(S, planWeek || mondayOf(planDay), planDay);
+      if (dstLW.length && !window.confirm('지난 주 ' + wdOf(planDay) + '요일 미션 ' + srcLW.length + '개로 바꿔 쓸까요?')) break;
+      dstLW.length = 0;
+      srcLW.forEach(function(m){ dstLW.push({ id: uid(), title: m.title, emoji: m.emoji || '⭐' }); });
+      render(); toast('지난 주 ' + wdOf(planDay) + '요일 미션 ' + srcLW.length + '개를 가져왔어요');
+      break;
+    }
+
+    case 'copyDayToAll': {
+      if (!planDay || !planWeek){ break; }
+      var srcWA = ensureWeek(S, planWeek);
+      var srcDA = dayList(srcWA, planDay);
+      if (!srcDA.length){ toast('먼저 ' + wdOf(planDay) + '요일 미션을 정해 주세요'); break; }
+      if (!window.confirm(wdOf(planDay) + '요일 미션 ' + srcDA.length + '개를 이번 주 다른 요일에도 똑같이 만들까요?')) break;
+      weekDates(planWeek).forEach(function(d){
+        if (d === planDay) return;
+        var dst = dayListRW(S, planWeek, d);
+        dst.length = 0;
+        srcDA.forEach(function(m){ dst.push({ id: uid(), title: m.title, emoji: m.emoji || '⭐' }); });
+      });
+      render(); toast(wdOf(planDay) + '요일 미션을 이번 주 모든 요일에 복사했어요');
+      break;
+    }
 
     case 'planWeek':
       setPlanWeek(el.dataset.week); break;
@@ -1126,13 +1249,19 @@ document.addEventListener('click', function(ev){
 
     case 'copyLast': {
       var today0 = todayISO(), mon0 = mondayOf(today0), lastMon0 = addDays(mon0, -7);
-      var lw = S.weeks[lastMon0];
-      if (!lw || !lw.missions || !lw.missions.length){ toast('지난 주에 정한 미션이 없어요'); break; }
+      var lw0 = S.weeks[lastMon0];
+      if (!lw0 || !weekHasMissions(lw0)){ toast('지난 주에 정한 미션이 없어요'); break; }
       var tw = ensureWeek(S, mon0);
-      if (tw.missions.length){ toast('이번 주 미션이 이미 있어요'); break; }
-      tw.missions = lw.missions.map(function(m){ return { id: uid(), title: m.title, emoji: m.emoji || '⭐' }; });
+      if (weekHasMissions(tw)){ toast('이번 주 미션이 이미 있어요'); break; }
+      weekDates(mon0).forEach(function(d){
+        var src = dayList(lw0, d);
+        if (!src.length) return;
+        var dst = dayListRW(S, mon0, d);
+        dst.length = 0;
+        src.forEach(function(m){ dst.push({ id: uid(), title: m.title, emoji: m.emoji || '⭐' }); });
+      });
       tw.plannedAt = stampNow();
-      render(); toast('지난 주 미션 ' + tw.missions.length + '개를 가져왔어요');
+      render(); toast('지난 주 미션을 요일별로 그대로 가져왔어요');
       break;
     }
 
@@ -1202,7 +1331,7 @@ window.__kmc = {
   render: render,
   setDate: function(iso){ __testDate = iso; cursor = null; render(); },
   setView: function(v){ view = v; render(); },
-  reset: function(){ S = emptyState(); cursor = null; planWeek = null; sheet = null; save(); render(); }
+  reset: function(){ S = emptyState(); cursor = null; planWeek = null; planDay = null; sheet = null; save(); render(); }
 };
 })();
 </script>
