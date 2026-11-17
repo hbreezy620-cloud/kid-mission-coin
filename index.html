@@ -603,8 +603,10 @@ function viewToday(today){
         '</button>';
     }).join('') + '</div>';
 
-    if (day.awarded){
+    if (day.awarded && st.complete){
       out += '<div class="banner ok">⭐ <span><b>' + (isToday ? '오늘' : mdOf(cursor)) + ' 미션 완성!</b> 코인 +1을 받았어요.</span></div>';
+    } else if (day.awarded){
+      out += '<div class="banner ok">🪙 <span><b>코인 +1을 받은 날</b>이에요. 체크를 풀어도 코인은 그대로예요.</span></div>';
     } else if (st.complete){
       out += '<div class="banner ok">⭐ 미션 완성! 잠시 후 코인이 들어와요.</div>';
     } else {
