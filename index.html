@@ -1967,7 +1967,20 @@ function viewWords(today){
 
   if (wmode === 'quiz') return head + wordQuizHTML(date, today);
   if (wmode === 'result') return head + wordResultHTML(date, today);
-  return head + wordCardsHTML(date, today) + wordReviewHTML(today);
+  return head + wordCardsHTML(date, today) + wordListHTML(date, today) + wordReviewHTML(today);
+}
+
+function wordListHTML(date, today){
+  var list = wordsOfDate(date), day = wordDay(date);
+  var isToday = date === today;
+  return '<section class="card" style="padding:15px 16px">' +
+    '<div class="card-h" style="margin-bottom:9px"><div><h2>' + (isToday ? '오늘의 단어장' : '복습 단어장') + '</h2>' +
+      '<p class="sub">' + lessonOf(date) + '일차 · 5단어 한눈에 보기</p></div></div>' +
+    '<div class="wrecap" style="margin:0">' + list.map(function(w, i){
+      return '<div class="wrrow"><div class="wrt"><b>' + esc(w.word) + '</b><span>' + esc(w.meaning) + '</span></div>' +
+        '<span class="wrok">' + (day.correct[i] ? ((day.tries[i] || 0) ? '⭕' : '⭐') : '·') + '</span></div>';
+    }).join('') + '</div>' +
+  '</section>';
 }
 
 function wordCardsHTML(date, today){
