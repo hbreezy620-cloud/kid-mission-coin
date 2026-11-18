@@ -3568,6 +3568,7 @@ function resetAll(){
   if (!window.confirm('모든 코인·미션·내역을 지우고 처음부터 시작할까요? 되돌릴 수 없어요.')) return;
   S = emptyState();
   sheet = null; cursor = null; planWeek = null; planDay = null;
+  words_reset();   // 영단어 화면도 처음(카드)으로 — 퀴즈 중이던 입력·피드백이 남지 않게
   save(); render();
   toast('처음부터 다시 시작해요');
 }
