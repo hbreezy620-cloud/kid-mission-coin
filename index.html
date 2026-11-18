@@ -276,6 +276,7 @@ input{font:inherit}
 .qbox{background:#FBFAFF;border:1.5px solid #F1ECFA;border-radius:18px;padding:15px 14px;margin-bottom:12px}
 .qen{font-size:17px;font-weight:800;line-height:1.75;color:#43395E;letter-spacing:-.1px}
 .blank{color:#6A59D4;background:#F1EDFE;border-radius:7px;padding:1px 7px;letter-spacing:1.5px}
+.filled{color:#0F9A7B;background:#E7FAF2;border-radius:7px;padding:1px 7px;font-weight:900}
 .qhint{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:800;color:#0F9A7B;background:#E7FAF2;
   border-radius:12px;padding:8px 11px;line-height:1.4}
 .qko{margin-top:9px;font-size:12.5px;font-weight:700;color:#8E86AD;line-height:1.5}
@@ -2007,7 +2008,9 @@ function wordQuizHTML(date, today){
   var w = list[wi];
   var answered = !!day.correct[wi];
   var tries = day.tries[wi] || 0;
-  var sent = esc(w.example).replace('_____', '<span class="blank">_____</span>');
+  var sent = answered
+    ? esc(w.example).replace('_____', '<span class="filled">' + esc(w.answer) + '</span>')
+    : esc(w.example).replace('_____', '<span class="blank">_____</span>');
   var hint = HINT_TEXT[w.hint] || HINT_TEXT.base;
   var fb = '';
   if (answered){
@@ -2032,7 +2035,7 @@ function wordQuizHTML(date, today){
       extra +
     '</div>' +
     (answered
-      ? '<button class="btn mint" data-act="nextQ">' + (wi === list.length - 1 ? '결과 보기' : '다음 문제 →') + '</button>'
+      ? fb + '<button class="btn mint" data-act="nextQ">' + (wi === list.length - 1 ? '결과 보기' : '다음 문제 →') + '</button>'
       : '<input class="input wans" id="wans" type="text" inputmode="text" autocomplete="off" autocorrect="off" ' +
           'autocapitalize="off" spellcheck="false" placeholder="빈칸에 들어갈 영어를 적어요" value="' + esc(winput) + '" maxlength="30">' +
         fb +
