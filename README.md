@@ -41,3 +41,5 @@
 
 - `index.html` — 앱 전체 (단일 파일, 외부 라이브러리 없음 · 귀여운 글씨체는 Google Fonts `Jua`/`Gowun Dodum`, 오프라인에선 기본 글씨체로 표시)
 - `manifest.json`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` — 홈 화면 추가용
+- `preview.png` — 새 화면(영단어 카드 · 빈칸 퀴즈 · 5문제 완료) 미리보기
+- `tests/` — 브라우저 콘솔에서 돌리는 검증 스크립트 (`__kmc` 훅 사용, 사이트 메뉴에는 안 나옴)
