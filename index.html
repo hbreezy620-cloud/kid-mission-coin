@@ -245,6 +245,62 @@ input{font:inherit}
 .redeem-big .w{font-size:13px;font-weight:800;color:var(--muted);margin-top:2px}
 .qrow{display:flex;gap:7px;margin:12px 0}
 .qrow .q{flex:1;justify-content:center;padding:11px 6px;font-size:12.5px;background:var(--lav);color:var(--primary-2)}
+/* ---------- 초등 필수 영단어 800 ---------- */
+.wbar{height:9px;border-radius:99px;background:#F1EDFB;overflow:hidden}
+.wbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#8FE7CE,#2FBF9B);transition:width .45s cubic-bezier(.2,.9,.3,1)}
+.flash{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  min-height:186px;border-radius:22px;padding:26px 20px;cursor:pointer;text-align:center;
+  background:linear-gradient(150deg,#F5F1FF 0%,#E9FBF4 100%);border:1.5px solid #E6DFF9;
+  box-shadow:inset 0 0 0 6px rgba(255,255,255,.55),0 12px 24px -18px rgba(110,94,200,.9);
+  transition:transform .12s ease,background .2s}
+.flash:active{transform:scale(.985)}
+.flash-en{font-family:'Jua','Gowun Dodum',-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:44px;
+  line-height:1.08;letter-spacing:-.5px;color:#5B4BC0;word-break:break-word}
+.flash-ko{font-family:'Jua','Gowun Dodum',-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:30px;
+  line-height:1.2;color:#12A183;word-break:keep-all}
+.flash-sub{font-size:11.5px;font-weight:800;color:#A79DC4;letter-spacing:.2px}
+.flash-mark{position:absolute;left:14px;top:12px;font-size:16px;line-height:1}
+.spk{position:absolute;right:12px;top:12px;width:46px;height:46px;border-radius:15px;background:#fff;border:1px solid #EFEAFB;
+  box-shadow:var(--shadow-sm);display:grid;place-items:center;font-size:20px;z-index:2}
+.spk:active{transform:scale(.94)}
+.wnav{display:flex;align-items:center;gap:10px;margin-top:12px}
+.wbtn{width:54px;height:46px;flex:0 0 auto;border-radius:14px;background:#F4F1FE;color:#6A59D4;display:grid;place-items:center;
+  font-family:'Jua','Gowun Dodum',sans-serif;font-size:24px;line-height:1}
+.wbtn[disabled]{opacity:.32}
+.wdots{flex:1;display:flex;align-items:center;justify-content:center;gap:9px}
+.wdot{width:11px;height:11px;border-radius:99px;background:#E6DFF6;transition:.18s}
+.wdot.on{background:#6A59D4;box-shadow:0 0 0 3px rgba(106,89,212,.18)}
+.wdot.ok{background:#2FBF9B}
+.wdot.ok.on{background:#1FA98B;box-shadow:0 0 0 3px rgba(47,191,155,.2)}
+.taptip{font-size:11.5px;font-weight:800;color:#A79FBF;text-align:center;margin-top:11px}
+.qbox{background:#FBFAFF;border:1.5px solid #F1ECFA;border-radius:18px;padding:15px 14px;margin-bottom:12px}
+.qen{font-size:17px;font-weight:800;line-height:1.75;color:#43395E;letter-spacing:-.1px}
+.blank{color:#6A59D4;background:#F1EDFE;border-radius:7px;padding:1px 7px;letter-spacing:1.5px}
+.qhint{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:800;color:#0F9A7B;background:#E7FAF2;
+  border-radius:12px;padding:8px 11px;line-height:1.4}
+.qko{margin-top:9px;font-size:12.5px;font-weight:700;color:#8E86AD;line-height:1.5}
+.wans{font-size:19px;font-weight:800;letter-spacing:.4px;text-align:center}
+.wfb{margin-top:10px;border-radius:14px;padding:11px 13px;font-size:13px;font-weight:800;line-height:1.45}
+.wfb.ok{background:#EFFBF8;color:#12876E}
+.wfb.no{background:#FDEFED;color:#D2554F}
+.shake{animation:shake .42s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}50%{transform:translateX(7px)}80%{transform:translateX(-4px)}}
+.wrecap{display:flex;flex-direction:column;gap:7px;margin:12px 0 0}
+.wrrow{display:flex;align-items:center;gap:10px;padding:10px 13px;border-radius:14px;background:#FCFBFF;border:1px solid #F1ECFA}
+.wrt{flex:1;min-width:0;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.wrt b{font-family:'Jua','Gowun Dodum',sans-serif;font-size:16px;color:#5B4BC0;font-weight:400}
+.wrt span{font-size:12.5px;font-weight:700;color:#9189B0}
+.wrok{font-size:14px;flex:0 0 auto}
+.wdrow{display:flex;align-items:center;gap:11px;width:100%;padding:10px 12px;border-radius:16px;background:#FCFBFF;
+  border:1.5px solid #F1ECFA;margin-bottom:8px;text-align:left}
+.wdbadge{width:38px;height:38px;flex:0 0 auto;border-radius:12px;display:grid;place-items:center;background:var(--lav);
+  color:#6A59D4;font-family:'Jua','Gowun Dodum',sans-serif;font-size:14px}
+.wdmain{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.wdt{font-size:13.5px;font-weight:800;color:#43395E}
+.wds{font-size:11.5px;font-weight:700;color:#9189B0}
+.wdact{flex:0 0 auto;font-size:12px;color:var(--primary-2);background:var(--lav);border-radius:999px;padding:7px 11px;
+  font-family:'Jua','Gowun Dodum',sans-serif}
+.wbanner{width:100%;text-align:left}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}}
 </style>
 </head>
@@ -266,6 +322,814 @@ input{font:inherit}
 <div id="sheetRoot"></div>
 <div id="toast" role="status" aria-live="polite"></div>
 
+<script id="words800">
+/* 2015 교육부 고시 초등학교 기본 어휘 800개 기반 단어장
+   [영단어, 뜻, 예문, 빈칸 정답, 문법 힌트, 예문 해석] */
+/* WORDS_DATA_START */
+var WORDS_800 = [
+["aunt","이모, 고모","My _____ lives in Busan.","aunt","base","우리 이모는 부산에 사세요."],
+["baby","아기","The _____ is sleeping in the bed.","baby","base","아기가 침대에서 자고 있어요."],
+["boy","남자아이, 소년","That _____ is my best friend.","boy","base","저 남자아이는 내 가장 친한 친구예요."],
+["brother","형, 오빠, 남동생","My _____ is two years older than me.","brother","base","내 형은 나보다 두 살 많아요."],
+["child","어린이, 아이","Every _____ likes this song.","child","base","모든 아이가 이 노래를 좋아해요."],
+["classmate","반 친구","My _____ sits next to me at school.","classmate","base","내 반 친구는 학교에서 내 옆에 앉아요."],
+["cousin","사촌","We play with our _____ on holidays.","cousin","base","우리는 명절에 사촌과 놀아요."],
+["dad","아빠","My _____ cooks dinner on Sundays.","dad","base","우리 아빠는 일요일마다 저녁을 하세요."],
+["daughter","딸","She is my aunt's _____.","daughter","base","그녀는 우리 이모의 딸이에요."],
+["family","가족","I love my _____ very much.","family","base","나는 우리 가족을 아주 사랑해요."],
+["father","아버지","My _____ works at a bank.","father","base","우리 아버지는 은행에서 일하세요."],
+["friend","친구","She is my best _____.","friend","base","그녀는 내 가장 친한 친구예요."],
+["girl","여자아이, 소녀","The _____ is wearing a pink dress.","girl","base","그 여자아이는 분홍색 드레스를 입고 있어요."],
+["grandmother","할머니","My _____ tells me old stories.","grandmother","base","우리 할머니는 나에게 옛날이야기를 해 주세요."],
+["kid","아이","The _____ is playing in the park.","kid","base","그 아이는 공원에서 놀고 있어요."],
+["lady","숙녀, 아주머니","The _____ has a big bag.","lady","base","그 아주머니는 큰 가방을 가지고 있어요."],
+["man","남자, 사람","The _____ is reading a newspaper.","man","base","그 남자는 신문을 읽고 있어요."],
+["mom","엄마","My _____ makes delicious cake.","mom","base","우리 엄마는 맛있는 케이크를 만드세요."],
+["mother","어머니","My _____ is a kind person.","mother","base","우리 어머니는 친절한 분이에요."],
+["parent","부모님","My _____ come to school today.","parents","plural","오늘 부모님이 학교에 오세요."],
+["people","사람들","Many _____ are waiting for the bus.","people","base","많은 사람들이 버스를 기다리고 있어요."],
+["sister","언니, 누나, 여동생","My _____ is in middle school.","sister","base","내 누나는 중학교에 다녀요."],
+["son","아들","Their _____ plays the piano well.","son","base","그들의 아들은 피아노를 잘 쳐요."],
+["uncle","삼촌","My _____ has a small farm.","uncle","base","우리 삼촌은 작은 농장을 가지고 있어요."],
+["woman","여자, 여성","The _____ is a famous singer.","woman","base","그 여자는 유명한 가수예요."],
+["arm","팔","Raise your _____ and wave to me.","arm","base","팔을 들어 나에게 손을 흔들어 보세요."],
+["body","몸","Wash your _____ before dinner.","body","base","저녁 먹기 전에 몸을 씻으세요."],
+["ear","귀","The rabbit has two long _____.","ears","plural","토끼는 긴 귀 두 개를 가지고 있어요."],
+["eye","눈","She has big _____ and a small nose.","eyes","plural","그녀는 큰 눈과 작은 코를 가지고 있어요."],
+["face","얼굴","Wash your _____ in the morning.","face","base","아침에 얼굴을 씻으세요."],
+["finger","손가락","I hurt my _____ with a knife.","finger","base","나는 칼에 손가락을 다쳤어요."],
+["foot","발","My left _____ is very cold.","foot","base","내 왼발이 아주 시려요."],
+["hair","머리카락","Her _____ is very long.","hair","base","그녀는 머리카락이 아주 길어요."],
+["hand","손","Raise your _____ if you know the answer.","hand","base","답을 알면 손을 드세요."],
+["head","머리","I have a hat on my _____.","head","base","나는 머리에 모자를 쓰고 있어요."],
+["heart","마음, 심장","My _____ is beating fast.","heart","base","내 심장이 빨리 뛰고 있어요."],
+["knee","무릎","I fell down and hurt my _____.","knee","base","나는 넘어져서 무릎을 다쳤어요."],
+["leg","다리","The chair has four _____.","legs","plural","의자는 다리가 네 개 있어요."],
+["lip","입술","Her _____ is red.","lip","base","그녀의 입술은 빨개요."],
+["mouth","입","Open your _____ and say ah.","mouth","base","입을 벌리고 아 하고 말하세요."],
+["neck","목","The giraffe has a long _____.","neck","base","기린은 긴 목을 가지고 있어요."],
+["nose","코","My _____ is cold today.","nose","base","오늘 내 코는 시려요."],
+["shoulder","어깨","My bag is on my _____.","shoulder","base","내 가방이 어깨에 있어요."],
+["tooth","이, 치아","Brush your _____ after every meal.","teeth","plural_irr","식사할 때마다 이를 닦으세요. (tooth의 복수는 teeth)"],
+["wing","날개","The bird hurt its _____.","wing","base","그 새는 날개를 다쳤어요."],
+["sick","아픈","I am _____ today, so I stay home.","sick","base","나는 오늘 아파서 집에 있어요."],
+["ill","병든, 아픈","My dog was _____ last week.","ill","base","우리 개는 지난주에 아팠어요."],
+["hurt","아프게 하다, 다치게 하다","My leg _____ a lot.","hurts","third","다리가 많이 아파요. (주어가 leg라서 hurts)"],
+["tired","피곤한","I am _____ after soccer practice.","tired","base","나는 축구 연습 후에 피곤해요."],
+["exercise","운동하다, 운동","We _____ in the gym every day.","exercise","base","우리는 매일 체육관에서 운동해요."],
+["animal","동물","The zoo has many kinds of _____.","animals","plural","동물원에는 여러 가지 동물이 있어요."],
+["bear","곰","The _____ is sleeping in the cave.","bear","base","곰이 동굴에서 자고 있어요."],
+["bird","새","A small _____ is singing on the tree.","bird","base","작은 새가 나무 위에서 노래하고 있어요."],
+["cat","고양이","My _____ likes to sleep on my bed.","cat","base","우리 고양이는 내 침대에서 자는 것을 좋아해요."],
+["chicken","닭","The _____ has a red hat on its head.","chicken","base","닭은 머리에 빨간 벼슬이 있어요."],
+["cow","소, 암소","The _____ gives us milk.","cow","base","소는 우리에게 우유를 줘요."],
+["dog","개","My _____ runs to the door every day.","dog","base","우리 개는 매일 문으로 달려가요."],
+["dolphin","돌고래","The _____ jumps out of the water.","dolphin","base","돌고래가 물 밖으로 뛰어올라요."],
+["duck","오리","The _____ is swimming in the pond.","duck","base","오리가 연못에서 헤엄치고 있어요."],
+["fish","물고기, 생선","I see a big _____ in the river.","fish","base","나는 강에서 큰 물고기를 봐요."],
+["hen","암탉","The _____ has five eggs.","hen","base","암탉은 달걀을 다섯 개 가지고 있어요."],
+["horse","말","The _____ runs very fast.","horse","base","말은 아주 빨리 달려요."],
+["lion","사자","The _____ is the king of animals.","lion","base","사자는 동물의 왕이에요."],
+["monkey","원숭이","The _____ likes bananas.","monkey","base","원숭이는 바나나를 좋아해요."],
+["pig","돼지","The _____ is eating in the mud.","pig","base","돼지가 진흙에서 먹고 있어요."],
+["sheep","양","The _____ has soft white wool.","sheep","base","양은 부드러운 흰 털을 가지고 있어요."],
+["tiger","호랑이","The _____ has black stripes.","tiger","base","호랑이는 검은 줄무늬가 있어요."],
+["zoo","동물원","We saw a lion at the _____.","zoo","base","우리는 동물원에서 사자를 봤어요."],
+["jungle","밀림, 정글","Many animals live in the _____.","jungle","base","많은 동물이 밀림에 살아요."],
+["farm","농장","My uncle has a big _____.","farm","base","우리 삼촌은 큰 농장을 가지고 있어요."],
+["apple","사과","I eat an _____ every morning.","apple","base","나는 매일 아침 사과를 먹어요."],
+["banana","바나나","The monkey is eating a _____.","banana","base","원숭이가 바나나를 먹고 있어요."],
+["bread","빵","I buy _____ at the bakery.","bread","base","나는 빵집에서 빵을 사요."],
+["breakfast","아침 식사","I eat _____ at seven every day.","breakfast","base","나는 매일 일곱 시에 아침을 먹어요."],
+["butter","버터","Put some _____ on the bread.","butter","base","빵에 버터를 조금 발라요."],
+["cake","케이크","My mom made a birthday _____.","cake","base","엄마가 생일 케이크를 만들어 주셨어요."],
+["candy","사탕","The child wants one more _____.","candy","base","그 아이는 사탕을 하나 더 원해요."],
+["cheese","치즈","I like _____ on my pizza.","cheese","base","나는 피자에 치즈 넣는 것을 좋아해요."],
+["coffee","커피","My dad drinks _____ every morning.","coffee","base","우리 아빠는 매일 아침 커피를 마셔요."],
+["cream","크림","The cake has white _____ on it.","cream","base","그 케이크 위에는 하얀 크림이 있어요."],
+["dinner","저녁 식사","We have _____ at six o'clock.","dinner","base","우리는 여섯 시에 저녁을 먹어요."],
+["egg","달걀, 계란","I eat one boiled _____ for lunch.","egg","base","나는 점심으로 삶은 달걀을 하나 먹어요."],
+["food","음식","Korean _____ is very delicious.","food","base","한국 음식은 아주 맛있어요."],
+["fruit","과일","Eat _____ every day for your health.","fruit","base","건강을 위해 매일 과일을 먹으세요."],
+["grape","포도","This _____ is sweet and purple.","grape","base","이 포도는 달고 보라색이에요."],
+["hamburger","햄버거","I want a _____ for lunch.","hamburger","base","나는 점심으로 햄버거를 먹고 싶어요."],
+["ice","얼음","Put some _____ in my water.","ice","base","내 물에 얼음을 조금 넣어 주세요."],
+["juice","주스","I drink orange _____ every morning.","juice","base","나는 매일 아침 오렌지 주스를 마셔요."],
+["lunch","점심 식사","We eat _____ at twelve.","lunch","base","우리는 열두 시에 점심을 먹어요."],
+["meat","고기","The dog eats _____ every day.","meat","base","그 개는 매일 고기를 먹어요."],
+["melon","멜론","This _____ is very big.","melon","base","이 멜론은 아주 커요."],
+["milk","우유","I drink a glass of _____ at night.","milk","base","나는 밤에 우유 한 잔을 마셔요."],
+["orange","오렌지","I peel an _____ for my sister.","orange","base","나는 여동생을 위해 오렌지를 까 줘요."],
+["pear","배","This _____ is yellow and sweet.","pear","base","이 배는 노랗고 달아요."],
+["potato","감자","My mom boils one _____ for me.","potato","base","엄마가 나のために 감자를 하나 삶아 주세요."],
+["rice","쌀, 밥","We eat _____ every day in Korea.","rice","base","우리는 한국에서 매일 밥을 먹어요."],
+["salad","샐러드","I make a green _____ for lunch.","salad","base","나는 점심으로 초록색 샐러드를 만들어요."],
+["salt","소금","Please put some _____ in the soup.","salt","base","수프에 소금을 조금 넣어 주세요."],
+["soup","수프, 국","The _____ is hot and delicious.","soup","base","그 수프는 뜨겁고 맛있어요."],
+["strawberry","딸기","This _____ is red and sweet.","strawberry","base","이 딸기는 빨갛고 달아요."],
+["sugar","설탕","I put two spoons of _____ in my tea.","sugar","base","나는 차에 설탕을 두 숟가락 넣어요."],
+["supper","저녁 식사","We eat _____ together at home.","supper","base","우리는 집에서 함께 저녁을 먹어요."],
+["tea","차","My grandmother drinks green _____.","tea","base","우리 할머니는 녹차를 드세요."],
+["tomato","토마토","I put a red _____ in my salad.","tomato","base","나는 샐러드에 빨간 토마토를 넣어요."],
+["vegetable","채소, 야채","Eat more _____ and fruit.","vegetable","base","채소와 과일을 더 많이 드세요."],
+["water","물","Please give me some cold _____.","water","base","시원한 물을 조금 주세요."],
+["album","사진첩","I put the photos in my _____.","album","base","나는 사진을 사진첩에 넣어요."],
+["answer","대답하다, 대답","Can you _____ my question?","answer","base","내 질문에 대답해 줄 수 있나요?"],
+["bag","가방","My school _____ is very heavy.","bag","base","내 학교 가방은 아주 무거워요."],
+["bell","종","The _____ rings at the end of class.","bell","base","수업이 끝날 때 종이 울려요."],
+["board","칠판, 판","The teacher writes on the _____.","board","base","선생님이 칠판에 쓰세요."],
+["book","책","I read a _____ before bed.","book","base","나는 자기 전에 책을 읽어요."],
+["calendar","달력","I look at the _____ for the date.","calendar","base","나는 날짜를 달력에서 확인해요."],
+["camera","사진기","I take a photo with my _____.","camera","base","나는 사진기로 사진을 찍어요."],
+["card","카드","I make a birthday _____ for my mom.","card","base","나는 엄마에게 생일 카드를 만들어요."],
+["chalk","분필","The teacher writes with white _____.","chalk","base","선생님이 하얀 분필로 쓰세요."],
+["class","학급, 수업","Our _____ starts at nine.","class","base","우리 수업은 아홉 시에 시작해요."],
+["club","동아리, 클럽","I join the art _____ at school.","club","base","나는 학교 미술 동아리에 들어요."],
+["computer","컴퓨터","I do my homework on the _____.","computer","base","나는 컴퓨터로 숙제를 해요."],
+["crayon","크레용","I color the sky with a blue _____.","crayon","base","나는 파란 크레용으로 하늘을 색칠해요."],
+["desk","책상","My books are on my _____.","desk","base","내 책들은 내 책상 위에 있어요."],
+["diary","일기","I write in my _____ every night.","diary","base","나는 매일 밤 일기를 써요."],
+["dictionary","사전","I look up the word in my _____.","dictionary","base","나는 그 단어를 사전에서 찾아요."],
+["eraser","지우개","I erase the mistake with an _____.","eraser","base","나는 지우개로 틀린 것을 지워요."],
+["example","예, 보기","The teacher gives us an _____.","example","base","선생님이 우리에게 예를 하나 보여 주세요."],
+["ink","잉크","My pen has no _____.","ink","base","내 펜에는 잉크가 없어요."],
+["lesson","수업, 학과","Our English _____ is very fun.","lesson","base","우리 영어 수업은 아주 재미있어요."],
+["letter","편지, 글자","I write a _____ to my friend.","letter","base","나는 친구에게 편지를 써요."],
+["list","목록","I make a _____ of things to buy.","list","base","나는 살 것들의 목록을 만들어요."],
+["map","지도","I find Korea on the _____.","map","base","나는 지도에서 한국을 찾아요."],
+["note","공책, 메모","I write the answer in my _____.","note","base","나는 공책에 답을 적어요."],
+["page","쪽, 페이지","Open your book to _____ ten.","page","base","책 열 쪽을 펴세요."],
+["paint","그리다, 칠하다","I _____ a picture with a brush.","paint","base","나는 붓으로 그림을 그려요."],
+["paper","종이","I need a piece of _____","paper","base","종이 한 장이 필요해요."],
+["pen","펜","Please give me a blue _____.","pen","base","파란 펜을 하나 주세요."],
+["pencil","연필","I write with a _____.","pencil","base","나는 연필로 써요."],
+["picture","그림, 사진","I draw a _____ of my family.","picture","base","나는 우리 가족 그림을 그려요."],
+["point","점수, 요점","This is an important _____.","point","base","이것은 중요한 점이에요."],
+["poster","포스터, 벽보","We make a big _____ for the party.","poster","base","우리는 파티를 위해 큰 포스터를 만들어요."],
+["practice","연습하다, 연습","I _____ the piano every day.","practice","base","나는 매일 피아노를 연습해요."],
+["print","인쇄하다","Can you _____ this picture?","print","base","이 그림을 인쇄해 줄 수 있나요?"],
+["problem","문제","This math _____ is very hard.","problem","base","이 수학 문제는 아주 어려워요."],
+["question","질문, 문제","May I ask you a _____?","question","base","질문 하나 해도 될까요?"],
+["record","기록하다","We _____ our song with a phone.","record","base","우리는 휴대폰으로 우리 노래를 녹음해요."],
+["ruler","자","I draw a line with a _____.","ruler","base","나는 자로 선을 그어요."],
+["score","점수","The _____ is three to one.","score","base","점수는 3대 1이에요."],
+["spell","철자를 쓰다","Can you _____ your name?","spell","base","네 이름 철자를 쓸 수 있니?"],
+["story","이야기","My grandma tells a fun _____.","story","base","우리 할머니는 재미있는 이야기를 해 주세요."],
+["study","공부하다","I _____ English every evening.","study","base","나는 매일 저녁 영어를 공부해요."],
+["tape","테이프","I fix the paper with _____.","tape","base","나는 종이를 테이프로 붙여요."],
+["test","시험","We have an English _____ today.","test","base","오늘 우리는 영어 시험이 있어요."],
+["video","영상, 비디오","I watch a funny _____ on my phone.","video","base","나는 휴대폰으로 재미있는 영상을 봐요."],
+["word","낱말, 단어","This _____ is hard to spell.","word","base","이 단어는 철자가 어려워요."],
+["bath","목욕","I take a _____ every evening.","bath","base","나는 매일 저녁 목욕을 해요."],
+["bed","침대","My cat is sleeping on my _____.","bed","base","우리 고양이가 내 침대에서 자고 있어요."],
+["bottle","병","There is water in the _____.","bottle","base","병 안에 물이 있어요."],
+["bowl","그릇, 사발","I eat rice in a white _____.","bowl","base","나는 하얀 그릇에 밥을 먹어요."],
+["box","상자","My toys are in this _____.","box","base","내 장난감은 이 상자 안에 있어요."],
+["brush","솔, 빗","I clean my shoes with a _____.","brush","base","나는 솔로 신발을 닦아요."],
+["button","단추","A _____ is missing on my shirt.","button","base","내 셔츠에 단추 하나가 없어졌어요."],
+["candle","양초, 촛불","We light a _____ on the cake.","candle","base","우리는 케이크 위에 양초를 켜요."],
+["ceiling","천장","A lamp is on the _____.","ceiling","base","천장에 등이 하나 있어요."],
+["chair","의자","Please sit on this _____.","chair","base","이 의자에 앉아 주세요."],
+["chopstick","젓가락","I can use one _____ well.","chopstick","base","나는 젓가락 하나를 잘 사용해요."],
+["cup","컵","I drink tea from a small _____.","cup","base","나는 작은 컵으로 차를 마셔요."],
+["curtain","커튼","Please close the _____ at night.","curtain","base","밤에는 커튼을 닫아 주세요."],
+["dish","접시, 그릇","I wash the _____ after dinner.","dish","base","나는 저녁 후에 접시를 씻어요."],
+["door","문","Please open the _____.","door","base","문을 열어 주세요."],
+["floor","바닥, 마루","My bag is on the _____.","floor","base","내 가방은 바닥에 있어요."],
+["fork","포크","I eat salad with a _____.","fork","base","나는 포크로 샐러드를 먹어요."],
+["garden","정원","Many flowers grow in our _____.","garden","base","우리 정원에는 많은 꽃이 자라요."],
+["glass","유리, 유리컵","Please give me a _____ of water.","glass","base","물 한 잔 주세요."],
+["handle","손잡이","Hold the _____ of the cup.","handle","base","컵의 손잡이를 잡으세요."],
+["hose","호스","My dad waters the garden with a _____.","hose","base","우리 아빠는 호스로 정원에 물을 줘요."],
+["key","열쇠","I have the _____ to the door.","key","base","나에게 그 문 열쇠가 있어요."],
+["kitchen","부엌","My mom is cooking in the _____.","kitchen","base","엄마가 부엌에서 요리하고 계세요."],
+["knife","칼","Cut the apple with a _____.","knife","base","칼로 사과를 자르세요."],
+["lamp","등, 램프","Please turn on the _____.","lamp","base","등을 켜 주세요."],
+["mirror","거울","I look in the _____ every morning.","mirror","base","나는 매일 아침 거울을 봐요."],
+["pin","핀","I fix the paper with a _____.","pin","base","나는 핀으로 종이를 고정해요."],
+["pipe","파이프, 관","Water runs in this _____.","pipe","base","물이 이 파이프 안을 흘러요."],
+["radio","라디오","I listen to music on the _____.","radio","base","나는 라디오로 음악을 들어요."],
+["roof","지붕","The cat is on the _____.","roof","base","고양이가 지붕 위에 있어요."],
+["room","방","My _____ is small but clean.","room","base","내 방은 작지만 깨끗해요."],
+["sheet","시트, 한 장","I put a clean _____ on my bed.","sheet","base","나는 침대에 깨끗한 시트를 깔아요."],
+["shower","샤워","I take a _____ before bed.","shower","base","나는 자기 전에 샤워를 해요."],
+["soap","비누","Wash your hands with _____.","soap","base","비누로 손을 씻으세요."],
+["spoon","숟가락","I eat soup with a _____.","spoon","base","나는 숟가락으로 수프를 먹어요."],
+["stairs","계단","I go up the _____ to my room.","stairs","base","나는 계단을 올라가 내 방에 가요."],
+["stick","막대기","The dog has a _____ in its mouth.","stick","base","그 개는 입에 막대기를 물고 있어요."],
+["stove","난로, 가스레인지","The soup is on the _____.","stove","base","수프가 가스레인지 위에 있어요."],
+["switch","스위치","Turn off the light with this _____.","switch","base","이 스위치로 불을 꺼요."],
+["table","탁자, 식탁","We eat dinner at the _____.","table","base","우리는 식탁에서 저녁을 먹어요."],
+["telephone","전화기","I call my aunt on the _____.","telephone","base","나는 전화기로 이모에게 전화해요."],
+["television","텔레비전","We watch the _____ after dinner.","television","base","우리는 저녁 후에 텔레비전을 봐요."],
+["wall","벽","A picture is on the _____.","wall","base","벽에 그림이 하나 걸려 있어요."],
+["window","창문","Please open the _____.","window","base","창문을 열어 주세요."],
+["cap","모자","He wears a red _____ on his head.","cap","base","그는 머리에 빨간 모자를 쓰고 있어요."],
+["clothes","옷","I put my _____ in the box.","clothes","base","나는 내 옷을 상자에 넣어요."],
+["coat","코트, 외투","Wear a warm _____ in winter.","coat","base","겨울에는 따뜻한 코트를 입으세요."],
+["dress","드레스, 원피스","She wears a pretty _____ to the party.","dress","base","그녀는 파티에 예쁜 드레스를 입어요."],
+["glove","장갑","I wear one _____ on each hand.","glove","base","나는 양손에 장갑을 하나씩 껴요."],
+["hat","모자","My _____ is too big for me.","hat","base","내 모자는 나에게 너무 커요."],
+["pair","한 켤레, 한 짝","I buy a _____ of shoes.","pair","base","나는 신발 한 켤레를 사요."],
+["pants","바지","These _____ are too long for me.","pants","base","이 바지는 나에게 너무 길어요."],
+["pocket","주머니","I put the coin in my _____.","pocket","base","나는 동전을 주머니에 넣어요."],
+["ring","반지, 고리","She wears a gold _____ on her finger.","ring","base","그녀는 손가락에 금반지를 끼고 있어요."],
+["shirt","셔츠","My _____ is white and clean.","shirt","base","내 셔츠는 하얗고 깨끗해요."],
+["shoe","신발","One _____ is under the bed.","shoe","base","신발 한 짝이 침대 아래에 있어요."],
+["skirt","치마","Her _____ is blue and short.","skirt","base","그녀의 치마는 파랗고 짧아요."],
+["sock","양말","I wear one _____ on each foot.","sock","base","나는 양발에 양말을 하나씩 신어요."],
+["sweater","스웨터","This _____ is very warm.","sweater","base","이 스웨터는 아주 따뜻해요."],
+["tie","매다, 넥타이","Please _____ your shoes.","tie","base","신발 끈을 매 주세요."],
+["umbrella","우산","Take an _____ because it is raining.","umbrella","base","비가 오니까 우산을 가져가세요."],
+["wear","입다, 쓰다","I _____ a hat in summer.","wear","base","나는 여름에 모자를 써요."],
+["black","검은색","The cat is _____.","black","base","그 고양이는 검은색이에요."],
+["blue","파란색","The sky is _____.","blue","base","하늘은 파란색이에요."],
+["brown","갈색","The bear is _____.","brown","base","그 곰은 갈색이에요."],
+["color","색깔","What is your favorite _____?","color","base","네가 가장 좋아하는 색은 무엇이니?"],
+["gold","금, 금색","The ring is made of _____.","gold","base","그 반지는 금으로 만들어졌어요."],
+["gray","회색","The sky is _____ today.","gray","base","오늘 하늘은 회색이에요."],
+["green","초록색","The leaves are _____ in spring.","green","base","봄에는 나뭇잎이 초록색이에요."],
+["pink","분홍색","She likes the _____ flower.","pink","base","그녀는 분홍색 꽃을 좋아해요."],
+["red","빨간색","The apple is _____.","red","base","그 사과는 빨간색이에요."],
+["silver","은, 은색","The spoon is _____.","silver","base","그 숟가락은 은색이에요."],
+["white","흰색","Snow is _____.","white","base","눈은 흰색이에요."],
+["yellow","노란색","The banana is _____.","yellow","base","그 바나나는 노란색이에요."],
+["circle","원, 동그라미","Draw a big _____ here.","circle","base","여기에 큰 동그라미를 그리세요."],
+["line","선, 줄","Draw a straight _____.","line","base","곧은 선을 하나 그으세요."],
+["round","둥근","The moon is _____ tonight.","round","base","오늘 밤 달은 둥글어요."],
+["shape","모양","What _____ is it?","shape","base","그것은 무슨 모양이니?"],
+["square","정사각형","The box has a _____ top.","square","base","그 상자는 윗면이 정사각형이에요."],
+["straight","곧은, 똑바로","Draw a _____ line.","straight","base","곧은 선을 그으세요."],
+["size","크기","What _____ are your shoes?","size","base","네 신발 크기는 얼마니?"],
+["hundred","백, 100","There are one _____ students here.","hundred","base","여기에 학생이 백 명 있어요."],
+["million","백만","One _____ is a very big number.","million","base","백만은 아주 큰 수예요."],
+["thousand","천, 1000","This book has one _____ pages.","thousand","base","이 책은 천 쪽이에요."],
+["number","숫자, 번호","What is your phone _____?","number","base","네 전화번호는 무엇이니?"],
+["zero","영, 0","The score is three to _____.","zero","base","점수는 3대 0이에요."],
+["once","한 번","I brush my teeth _____ a day.","once","base","나는 하루에 한 번 이를 닦아요."],
+["twice","두 번","We play soccer _____ a week.","twice","base","우리는 일주일에 두 번 축구를 해요."],
+["afternoon","오후","We play outside in the _____.","afternoon","base","우리는 오후에 밖에서 놀아요."],
+["autumn","가을","Leaves fall in _____.","autumn","base","가을에는 나뭇잎이 떨어져요."],
+["birthday","생일","My _____ is in June.","birthday","base","내 생일은 6월이에요."],
+["clock","시계","The _____ on the wall is slow.","clock","base","벽에 있는 시계가 느려요."],
+["date","날짜","What is the _____ today?","date","base","오늘 날짜는 무엇이니?"],
+["day","날, 하루","Today is a sunny _____.","day","base","오늘은 맑은 날이에요."],
+["early","일찍, 이른","I get up _____ every morning.","early","base","나는 매일 아침 일찍 일어나요."],
+["evening","저녁","We watch TV in the _____.","evening","base","우리는 저녁에 텔레비전을 봐요."],
+["holiday","휴일, 방학","No school today. It is a _____.","holiday","base","오늘은 학교가 없어요. 휴일이에요."],
+["hour","시간(한 시간)","I read for one _____ every day.","hour","base","나는 매일 한 시간 동안 책을 읽어요."],
+["minute","분","Please wait five _____.","minutes","plural","5분만 기다려 주세요."],
+["month","달, 개월","There are twelve _____ in a year.","months","plural","일 년에는 열두 달이 있어요."],
+["morning","아침","I brush my teeth in the _____.","morning","base","나는 아침에 이를 닦아요."],
+["night","밤","The stars shine at _____.","night","base","밤에는 별이 빛나요."],
+["now","지금","I am busy _____.","now","base","나는 지금 바빠요."],
+["o'clock","~시 정각","It is eight _____.","o'clock","base","여덟 시 정각이에요."],
+["season","계절","Spring is my favorite _____.","season","base","봄은 내가 가장 좋아하는 계절이에요."],
+["spring","봄","Flowers bloom in _____.","spring","base","봄에는 꽃이 피어요."],
+["summer","여름","We swim in the sea in _____.","summer","base","우리는 여름에 바다에서 수영해요."],
+["winter","겨울","It snows a lot in _____.","winter","base","겨울에는 눈이 많이 와요."],
+["today","오늘","We have no school _____.","today","base","오늘은 학교가 없어요."],
+["tomorrow","내일","We will go to the zoo _____.","tomorrow","base","우리는 내일 동물원에 갈 거예요."],
+["tonight","오늘 밤","Let's see the stars _____.","tonight","base","오늘 밤 별을 보자."],
+["week","한 주, 일주일","There are seven days in a _____.","week","base","일주일에는 이레가 있어요."],
+["year","해, 일 년","I am ten _____ old.","years","plural","나는 열 살이에요."],
+["yesterday","어제","I saw my friend _____.","yesterday","base","나는 어제 친구를 만났어요."],
+["vacation","휴가, 방학","We go to the beach on _____.","vacation","base","우리는 방학에 해변에 가요."],
+["late","늦은, 늦게","I am _____ for school today.","late","base","나는 오늘 학교에 늦었어요."],
+["next","다음의","See you _____ week!","next","base","다음 주에 만나요!"],
+["last","마지막의, 지난","I saw him _____ night.","last","base","나는 어젯밤에 그를 봤어요."],
+["soon","곧","Dinner is ready _____.","soon","base","저녁이 곧 준비될 거예요."],
+["air","공기","The _____ is fresh in the morning.","air","base","아침에는 공기가 상쾌해요."],
+["beach","해변, 바닷가","We play in the sand at the _____.","beach","base","우리는 해변에서 모래로 놀아요."],
+["cloud","구름","A white _____ is in the sky.","cloud","base","하늘에 하얀 구름이 있어요."],
+["earth","지구, 땅","We live on the _____.","earth","base","우리는 지구에 살아요."],
+["fire","불","Do not play with _____.","fire","base","불을 가지고 놀지 마세요."],
+["flower","꽃","This _____ smells very sweet.","flower","base","이 꽃은 아주 달콤한 냄새가 나요."],
+["grass","풀, 잔디","The children sit on the _____.","grass","base","아이들이 잔디 위에 앉아 있어요."],
+["ground","땅, 바닥","The leaves fall to the _____.","ground","base","나뭇잎이 땅으로 떨어져요."],
+["hill","언덕","We walk up the small _____.","hill","base","우리는 작은 언덕을 걸어 올라가요."],
+["island","섬","Jeju is a big _____.","island","base","제주도는 큰 섬이에요."],
+["lake","호수","We swim in the _____.","lake","base","우리는 호수에서 수영해요."],
+["land","땅, 육지","The boat is far from _____.","land","base","그 배는 육지에서 멀리 있어요."],
+["leaf","잎","One green _____ falls down.","leaf","base","초록 잎 하나가 떨어져요."],
+["light","빛","The _____ of the sun is warm.","light","base","햇빛은 따뜻해요."],
+["moon","달","The _____ is bright tonight.","moon","base","오늘 밤 달이 밝아요."],
+["mountain","산","We climb the _____ together.","mountain","base","우리는 함께 산에 올라요."],
+["pine","소나무","A tall _____ is in our garden.","pine","base","우리 정원에는 키 큰 소나무가 있어요."],
+["plant","식물","This _____ needs water.","plant","base","이 식물은 물이 필요해요."],
+["river","강","The _____ flows to the sea.","river","base","강은 바다로 흘러가요."],
+["rock","바위","A big _____ is by the river.","rock","base","강 옆에 큰 바위가 있어요."],
+["rose","장미","The red _____ is beautiful.","rose","base","빨간 장미는 아름다워요."],
+["sand","모래","I like to play in the _____.","sand","base","나는 모래에서 노는 것을 좋아해요."],
+["sea","바다","The _____ is blue and deep.","sea","base","바다는 파랗고 깊어요."],
+["sky","하늘","The _____ is clear today.","sky","base","오늘 하늘은 맑아요."],
+["space","우주, 공간","Stars are in _____.","space","base","별은 우주에 있어요."],
+["star","별","One bright _____ is in the sky.","star","base","하늘에 밝은 별 하나가 있어요."],
+["steam","증기, 김","Hot soup makes _____.","steam","base","뜨거운 수프는 김을 내요."],
+["stone","돌, 돌멩이","I throw a small _____ into the water.","stone","base","나는 작은 돌을 물에 던져요."],
+["sun","태양, 해","The _____ rises in the east.","sun","base","태양은 동쪽에서 떠올라요."],
+["tree","나무","A bird sits on the _____.","tree","base","새 한 마리가 나무 위에 앉아 있어요."],
+["tulip","튤립","A red _____ is in the garden.","tulip","base","정원에 빨간 튤립이 있어요."],
+["wind","바람","The _____ is strong today.","wind","base","오늘 바람이 세요."],
+["storm","폭풍, 폭풍우","A big _____ is coming.","storm","base","큰 폭풍우가 오고 있어요."],
+["weather","날씨","The _____ is nice today.","weather","base","오늘 날씨가 좋아요."],
+["rain","비","Cold _____ is falling.","rain","base","차가운 비가 내리고 있어요."],
+["rainbow","무지개","A _____ is in the sky after the rain.","rainbow","base","비가 온 뒤 하늘에 무지개가 있어요."],
+["snow","눈","White _____ covers the tree.","snow","base","하얀 눈이 나무를 덮어요."],
+["cold","추운, 차가운","It is very _____ in winter.","cold","base","겨울에는 아주 추워요."],
+["hot","뜨거운, 더운","The soup is too _____.","hot","base","그 수프는 너무 뜨거워요."],
+["warm","따뜻한","My coat is _____ and soft.","warm","base","내 코트는 따뜻하고 부드러워요."],
+["cool","시원한","This fan is _____ in summer.","cool","base","이 선풍기는 여름에 시원해요."],
+["wet","젖은","My shoes are _____ from the rain.","wet","base","내 신발은 비에 젖었어요."],
+["wood","나무(재목), 숲","This table is made of _____.","wood","base","이 탁자는 나무로 만들어졌어요."],
+["address","주소","Please write your _____ here.","address","base","여기에 주소를 써 주세요."],
+["airport","공항","The plane is at the _____.","airport","base","비행기가 공항에 있어요."],
+["apartment","아파트","We live in a tall _____.","apartment","base","우리는 높은 아파트에 살아요."],
+["bank","은행","My dad works at a _____.","bank","base","우리 아빠는 은행에서 일하세요."],
+["bridge","다리","We walk over the _____.","bridge","base","우리는 다리를 건너요."],
+["capital","수도","Seoul is the _____ of Korea.","capital","base","서울은 한국의 수도예요."],
+["center","중앙, 센터","The shop is in the _____ of town.","center","base","그 가게는 마을 중앙에 있어요."],
+["church","교회","We go to the _____ on Sundays.","church","base","우리는 일요일에 교회에 가요."],
+["city","도시","Seoul is a big _____.","city","base","서울은 큰 도시예요."],
+["corner","모퉁이, 구석","The store is on the _____.","corner","base","그 가게는 모퉁이에 있어요."],
+["country","나라, 시골","Korea is my _____.","country","base","한국은 내 나라예요."],
+["east","동쪽","The sun comes up in the _____.","east","base","해는 동쪽에서 떠올라요."],
+["field","들판, 운동장","The soccer game is on the _____.","field","base","축구 경기는 운동장에서 있어요."],
+["gate","문, 대문","Close the _____ of the garden.","gate","base","정원 대문을 닫으세요."],
+["hall","회관, 넓은 방","The party is in the _____.","hall","base","파티는 넓은 방에서 열려요."],
+["home","집, 가정","I go _____ after school.","home","base","나는 학교가 끝나면 집에 가요."],
+["hospital","병원","My mom is in the _____.","hospital","base","우리 엄마는 병원에 계세요."],
+["hotel","호텔","We sleep in a _____ on our trip.","hotel","base","우리는 여행에서 호텔에서 자요."],
+["house","집","Our _____ has a small garden.","house","base","우리 집에는 작은 정원이 있어요."],
+["library","도서관","I read books at the _____.","library","base","나는 도서관에서 책을 읽어요."],
+["market","시장","We buy fruit at the _____.","market","base","우리는 시장에서 과일을 사요."],
+["north","북쪽","My room is on the _____ side.","north","base","내 방은 북쪽에 있어요."],
+["office","사무실","My dad is at his _____.","office","base","우리 아빠는 사무실에 계세요."],
+["park","공원","We play in the _____ on Sundays.","park","base","우리는 일요일에 공원에서 놀아요."],
+["place","장소","This is a good _____ for a picnic.","place","base","이곳은 소풍하기 좋은 장소예요."],
+["pool","수영장","We swim in the _____.","pool","base","우리는 수영장에서 수영해요."],
+["restaurant","식당","We eat dinner at a _____.","restaurant","base","우리는 식당에서 저녁을 먹어요."],
+["school","학교","I walk to _____ every morning.","school","base","나는 매일 아침 학교에 걸어가요."],
+["shop","가게","The _____ sells candy and toys.","shop","base","그 가게는 사탕과 장난감을 팔아요."],
+["side","옆, 쪽","Sit on this _____ of the table.","side","base","탁자의 이쪽 옆에 앉으세요."],
+["sign","표지, 신호","The _____ says \"Stop\".","sign","base","그 표지판은 \"정지\"라고 쓰여 있어요."],
+["south","남쪽","Busan is in the _____ of Korea.","south","base","부산은 한국의 남쪽에 있어요."],
+["station","역, 정류장","I wait for the train at the _____.","station","base","나는 역에서 기차를 기다려요."],
+["store","가게","I buy milk at the _____.","store","base","나는 가게에서 우유를 사요."],
+["street","거리, 길","Many cars are on the _____.","street","base","거리에 많은 차가 있어요."],
+["supermarket","슈퍼마켓","We buy food at the _____.","supermarket","base","우리는 슈퍼마켓에서 음식을 사요."],
+["temple","절, 사찰","We visit an old _____ in the mountain.","temple","base","우리는 산에 있는 오래된 절을 찾아가요."],
+["top","꼭대기","We are at the _____ of the hill.","top","base","우리는 언덕 꼭대기에 있어요."],
+["town","마을, 도시","I live in a small _____.","town","base","나는 작은 마을에 살아요."],
+["village","마을","My grandmother lives in a _____.","village","base","우리 할머니는 마을에 사세요."],
+["way","길, 방법","Please show me the _____.","way","base","제게 길을 알려 주세요."],
+["west","서쪽","The sun goes down in the _____.","west","base","해는 서쪽으로 넘어가요."],
+["world","세계, 세상","I want to travel around the _____.","world","base","나는 세계를 여행하고 싶어요."],
+["bicycle","자전거","I ride my _____ to school.","bicycle","base","나는 자전거를 타고 학교에 가요."],
+["boat","배, 보트","A small _____ is on the lake.","boat","base","호수 위에 작은 배가 있어요."],
+["bus","버스","I take the _____ to school.","bus","base","나는 버스를 타고 학교에 가요."],
+["car","자동차","My dad drives a blue _____.","car","base","우리 아빠는 파란 자동차를 운전하세요."],
+["plane","비행기","The _____ flies high in the sky.","plane","base","비행기가 하늘 높이 날아요."],
+["rocket","로켓","The _____ goes to space.","rocket","base","로켓은 우주로 가요."],
+["ship","배, 큰 배","A big _____ is in the sea.","ship","base","큰 배가 바다에 있어요."],
+["subway","지하철","I go to work by _____.","subway","base","나는 지하철로 회사에 가요."],
+["taxi","택시","We take a _____ to the airport.","taxi","base","우리는 택시를 타고 공항에 가요."],
+["train","기차","The _____ is very fast.","train","base","기차는 아주 빨라요."],
+["truck","화물차, 트럭","A big _____ carries boxes.","truck","base","큰 트럭이 상자를 실어 날라요."],
+["drive","운전하다","My mom can _____ a car.","drive","base","우리 엄마는 운전을 할 수 있어요."],
+["captain","선장, 우두머리","The _____ is on the ship.","captain","base","선장이 배 위에 있어요."],
+["doctor","의사","The _____ helps sick people.","doctor","base","의사는 아픈 사람을 도와요."],
+["king","왕","The _____ lives in a big castle.","king","base","왕은 큰 성에 살아요."],
+["nurse","간호사","The _____ is very kind.","nurse","base","그 간호사는 아주 친절해요."],
+["pilot","조종사","The _____ flies the plane.","pilot","base","조종사가 비행기를 조종해요."],
+["police","경찰","The _____ help people in the street.","police","base","경찰은 거리에서 사람들을 도와요."],
+["queen","여왕","The _____ has a gold crown.","queen","base","여왕은 금관을 쓰고 있어요."],
+["job","직업, 일","My dream _____ is a doctor.","job","base","내 꿈의 직업은 의사예요."],
+["work","일하다, 일","My father _____ at a hospital.","works","third","우리 아버지는 병원에서 일하세요. (주어가 3인칭 단수라서 works)"],
+["sir","선생님, ~님","Thank you, _____.","sir","base","고맙습니다, 선생님."],
+["ma'am","아주머니, ~님","Excuse me, _____.","ma'am","base","실례합니다, 아주머니."],
+["Miss","~양 (결혼하지 않은 여성 호칭)","_____ Lee is our English teacher.","Miss","cap","리 선생님이 우리 영어 선생님이에요."],
+["Mr","~씨 (남성 호칭)","_____ Kim is my father's friend.","Mr","cap","김 씨는 우리 아버지의 친구예요."],
+["Mrs","~부인 (기혼 여성 호칭)","_____ Park has two children.","Mrs","cap","박 부인은 아이가 둘이에요."],
+["ball","공","Let's play with a red _____.","ball","base","빨간 공을 가지고 놀자."],
+["balloon","풍선","The _____ is flying up high.","balloon","base","풍선이 높이 날아가요."],
+["band","악단, 끈","My friend plays in a music _____.","band","base","내 친구는 음악 밴드에서 연주해요."],
+["camp","야영, 캠프","We sleep in a tent at _____.","camp","base","우리는 캠프에서 텐트에서 자요."],
+["dance","춤추다, 춤","We _____ together at the party.","dance","base","우리는 파티에서 함께 춤을 춰요."],
+["doll","인형","My sister plays with a _____.","doll","base","내 여동생은 인형을 가지고 놀아요."],
+["drum","북, 드럼","He plays the _____ very well.","drum","base","그는 북을 아주 잘 쳐요."],
+["film","영화, 필름","We watch a fun _____ together.","film","base","우리는 함께 재미있는 영화를 봐요."],
+["game","놀이, 경기","Let's play a fun _____.","game","base","재미있는 놀이를 하자."],
+["guitar","기타","My brother plays the _____.","guitar","base","내 형은 기타를 쳐요."],
+["hiking","등산, 하이킹","We go _____ in the mountain.","hiking","base","우리는 산으로 등산을 가요."],
+["medal","메달","He wins a gold _____.","medal","base","그는 금메달을 땄어요."],
+["model","모형, 모델","I make a small plane _____.","model","base","나는 작은 비행기 모형을 만들어요."],
+["movie","영화","We see a funny _____ on Sunday.","movie","base","우리는 일요일에 재미있는 영화를 봐요."],
+["music","음악","I listen to _____ every day.","music","base","나는 매일 음악을 들어요."],
+["party","파티, 잔치","My birthday _____ is at home.","party","base","내 생일 파티는 집에서 열려요."],
+["piano","피아노","I play the _____ every evening.","piano","base","나는 매일 저녁 피아노를 쳐요."],
+["picnic","소풍","We go on a _____ in the park.","picnic","base","우리는 공원으로 소풍을 가요."],
+["play","놀다, 경기하다","Let's _____ soccer after school.","play","base","학교 끝나고 축구하자."],
+["robot","로봇","This _____ can walk and talk.","robot","base","이 로봇은 걷고 말할 수 있어요."],
+["skate","스케이트를 타다","We _____ on the ice in winter.","skate","base","우리는 겨울에 얼음 위에서 스케이트를 타요."],
+["slide","미끄러지다, 미끄럼틀","The children go down the _____.","slide","base","아이들이 미끄럼틀을 타고 내려와요."],
+["soccer","축구","We play _____ every Saturday.","soccer","base","우리는 매주 토요일 축구를 해요."],
+["sport","운동, 스포츠","Soccer is my favorite _____.","sport","base","축구는 내가 가장 좋아하는 운동이에요."],
+["swing","그네, 흔들리다","She plays on the _____ in the park.","swing","base","그녀는 공원에서 그네를 타요."],
+["team","팀, 한 패","Our _____ wins the game.","team","base","우리 팀이 경기에서 이겼어요."],
+["tennis","테니스","We play _____ after school.","tennis","base","우리는 방과 후에 테니스를 쳐요."],
+["toy","장난감","The baby plays with a _____.","toy","base","아기가 장난감을 가지고 놀아요."],
+["violin","바이올린","She plays the _____ very well.","violin","base","그녀는 바이올린을 아주 잘 켜요."],
+["fun","즐거움, 재미있는","We have a lot of _____ today.","fun","base","우리는 오늘 아주 즐거워요."],
+["afraid","두려워하는","I am _____ of big dogs.","afraid","base","나는 큰 개가 무서워요."],
+["angry","화난","My mom is _____ with me.","angry","base","엄마가 나에게 화가 나셨어요."],
+["glad","기쁜","I am _____ to see you again.","glad","base","다시 만나서 기뻐요."],
+["happy","행복한, 기쁜","The children are very _____.","happy","base","아이들이 아주 행복해요."],
+["sad","슬픈","She is _____ because her dog is sick.","sad","base","그녀는 개가 아파서 슬퍼요."],
+["mad","화난, 미친","My dad was _____ at me.","mad","base","우리 아빠가 나에게 화가 나셨어요."],
+["sorry","미안한, 유감스러운","I am _____ for being late.","sorry","base","늦어서 미안해요."],
+["hope","바라다, 희망","I _____ you feel better soon.","hope","base","나는 네가 곧 나아지기를 바라."],
+["love","사랑하다, 사랑","I _____ my family.","love","base","나는 우리 가족을 사랑해요."],
+["hate","미워하다, 싫어하다","I _____ cold weather.","hate","base","나는 추운 날씨가 싫어요."],
+["like","좋아하다","I _____ apples and bananas.","like","base","나는 사과와 바나나를 좋아해요."],
+["surprise","놀라게 하다, 놀람","The gift is a big _____.","surprise","base","그 선물은 큰 놀라움이에요."],
+["wonder","궁금해하다, 놀라다","I _____ what is in the box.","wonder","base","나는 상자 안에 무엇이 있는지 궁금해요."],
+["thirsty","목마른","I am _____. Can I have some water?","thirsty","base","나는 목말라요. 물 좀 마셔도 될까요?"],
+["hungry","배고픈","I am _____. Let's eat lunch.","hungry","base","나는 배고파요. 점심 먹자."],
+["act","행동하다, 연기하다","The children _____ in a school play.","act","base","아이들이 학교 연극에서 연기해요."],
+["arrive","도착하다","We _____ at school at eight.","arrive","base","우리는 여덟 시에 학교에 도착해요."],
+["ask","묻다, 부탁하다","May I _____ you a question?","ask","base","질문 하나 해도 될까요?"],
+["be","~이다, 있다","Please _____ quiet in the library.","be","base","도서관에서는 조용히 해 주세요."],
+["become","~이 되다","I want to _____ a singer.","become","base","나는 가수가 되고 싶어요."],
+["begin","시작하다","The class will _____ at nine.","begin","base","수업은 아홉 시에 시작할 거예요."],
+["blow","불다","Please _____ out the candle.","blow","base","양초 불을 불어서 끄세요."],
+["break","깨뜨리다, 부수다","Don't _____ the glass cup.","break","base","유리컵을 깨뜨리지 마세요."],
+["bring","가져오다","Please _____ your book tomorrow.","bring","base","내일 책을 가져오세요."],
+["build","짓다, 건설하다","They _____ a new house here.","build","base","그들은 여기에 새 집을 지어요."],
+["burn","타다, 태우다","The fire will _____ the paper.","burn","base","불이 종이를 태울 거예요."],
+["buy","사다","I want to _____ a new pen.","buy","base","나는 새 펜을 사고 싶어요."],
+["call","부르다, 전화하다","I will _____ my grandmother tonight.","call","base","나는 오늘 밤 할머니께 전화할 거예요."],
+["care","돌보다, 걱정하다","I _____ about my friends.","care","base","나는 내 친구들을 생각해요."],
+["carry","나르다, 들고 가다","Can you _____ this heavy box?","carry","base","이 무거운 상자를 옮길 수 있니?"],
+["catch","잡다, 받다","_____ the ball with both hands!","catch","base","두 손으로 공을 잡아!"],
+["change","바꾸다","Please _____ your wet shoes.","change","base","젖은 신발로 갈아 신으세요."],
+["climb","오르다","We _____ the mountain on Sunday.","climb","base","우리는 일요일에 산에 올라요."],
+["close","닫다","Please _____ the window.","close","base","창문을 닫아 주세요."],
+["come","오다","_____ here, please.","come","base","이리 와 주세요."],
+["cook","요리하다","My mom can _____ very well.","cook","base","우리 엄마는 요리를 아주 잘하세요."],
+["copy","베끼다","Don't _____ my homework.","copy","base","내 숙제를 베끼지 마."],
+["count","세다","Can you _____ to ten?","count","base","열까지 셀 수 있니?"],
+["cover","덮다, 가리다","_____ your mouth when you cough.","cover","base","기침할 때 입을 가리세요."],
+["cross","가로지르다, 건너다","Look left and right before you _____ the street.","cross","base","길을 건너기 전에 좌우를 보세요."],
+["cry","울다","The baby starts to _____.","cry","base","아기가 울기 시작해요."],
+["cut","자르다","Please _____ the cake.","cut","base","케이크를 잘라 주세요."],
+["die","죽다","The flowers _____ in winter.","die","base","꽃은 겨울에 죽어요."],
+["do","하다","What do you _____ on Sundays?","do","base","일요일마다 무엇을 하니?"],
+["draw","그리다","I can _____ a cat.","draw","base","나는 고양이를 그릴 수 있어요."],
+["drink","마시다","I _____ milk every morning.","drink","base","나는 매일 아침 우유를 마셔요."],
+["drop","떨어뜨리다","Don't _____ the cup.","drop","base","컵을 떨어뜨리지 마세요."],
+["eat","먹다","We _____ lunch at twelve.","ate","past_irr","우리는 열두 시에 점심을 먹었어요. (eat의 과거형은 ate)"],
+["end","끝나다, 끝내다","The movie will _____ at nine.","end","base","영화는 아홉 시에 끝나요."],
+["enjoy","즐기다","I _____ the party very much.","enjoy","base","나는 그 파티를 아주 즐겼어요."],
+["fall","떨어지다, 가을","Leaves _____ from the tree in autumn.","fall","base","가을에는 나뭇잎이 나무에서 떨어져요."],
+["feel","느끼다","I _____ happy today.","feel","base","나는 오늘 행복하게 느껴져요."],
+["fight","싸우다","Don't _____ with your brother.","fight","base","형과 싸우지 마."],
+["fill","채우다","Please _____ the cup with water.","fill","base","컵을 물로 채워 주세요."],
+["find","찾다, 발견하다","I can't _____ my key.","find","base","내 열쇠를 찾을 수가 없어요."],
+["finish","끝내다","Please _____ your homework first.","finish","base","먼저 숙제를 끝내세요."],
+["fix","고치다","My dad can _____ my bike.","fix","base","우리 아빠가 내 자전거를 고칠 수 있어요."],
+["fly","날다","Birds can _____ very high.","fly","base","새들은 아주 높이 날 수 있어요."],
+["follow","따라가다","Please _____ me.","follow","base","저를 따라오세요."],
+["forget","잊다","Don't _____ your umbrella.","forget","base","우산을 잊지 마세요."],
+["get","얻다, 도착하다","I _____ up at seven every day.","get","base","나는 매일 일곱 시에 일어나요."],
+["give","주다","Please _____ me the ball.","give","base","나에게 공을 주세요."],
+["go","가다","We _____ to the zoo yesterday.","went","past_irr","우리는 어제 동물원에 갔어요. (go의 과거형은 went)"],
+["grow","자라다, 기르다","Flowers _____ in the garden.","grow","base","꽃은 정원에서 자라요."],
+["happen","일어나다, 발생하다","What _____ to your leg?","happened","past","네 다리에 무슨 일이 있었니?"],
+["have","가지다, 있다","I _____ a small dog.","have","base","나는 작은 개를 한 마리 키워요."],
+["hear","듣다","I can _____ a bird singing.","hear","base","나는 새가 노래하는 소리를 들을 수 있어요."],
+["help","돕다","Please _____ me with this box.","help","base","이 상자를 옮기는 것을 도와주세요."],
+["hide","숨다, 숨기다","The cat likes to _____ under the bed.","hide","base","그 고양이는 침대 밑에 숨는 것을 좋아해요."],
+["hit","때리다, 치다","He _____ the ball with a bat.","hit","base","그는 방망이로 공을 쳐요."],
+["hold","잡다, 들다","Please _____ my bag for a minute.","hold","base","잠깐 내 가방을 들어 줄래요?"],
+["hurry","서두르다","We must _____ to catch the bus.","hurry","base","버스를 타려면 서둘러야 해요."],
+["introduce","소개하다","Let me _____ my friend to you.","introduce","base","내 친구를 너에게 소개할게."],
+["join","가입하다, 함께하다","Can I _____ your game?","join","base","너희 놀이에 나도 끼어도 될까?"],
+["jump","뛰어오르다","The dog can _____ very high.","jump","base","그 개는 아주 높이 뛸 수 있어요."],
+["keep","지키다, 유지하다","Please _____ your room clean.","keep","base","네 방을 깨끗하게 유지하세요."],
+["kick","차다","He _____ the soccer ball hard.","kicks","third","그는 축구공을 세게 차요. (주어가 3인칭 단수라서 kicks)"],
+["kill","죽이다","Don't _____ the small bugs.","kill","base","작은 벌레를 죽이지 마세요."],
+["knock","두드리다","Please _____ on the door.","knock","base","문을 두드려 주세요."],
+["know","알다","I _____ the answer.","know","base","나는 답을 알아요."],
+["laugh","웃다","We _____ at the funny story.","laugh","base","우리는 그 재미있는 이야기에 웃어요."],
+["lead","인도하다","The teacher will _____ us to the hall.","lead","base","선생님이 우리를 회관으로 인도하실 거예요."],
+["learn","배우다","I _____ English at school.","learn","base","나는 학교에서 영어를 배워요."],
+["leave","떠나다, 두고 가다","We _____ home at eight.","leave","base","우리는 여덟 시에 집을 나서요."],
+["let","허락하다, ~하게 하다","Please _____ me help you.","let","base","제가 도와도 되게 해 주세요."],
+["lie","눕다, 거짓말하다","The dog likes to _____ on the floor.","lie","base","그 개는 바닥에 눕는 것을 좋아해요."],
+["listen","듣다, 귀 기울이다","Please _____ to the teacher.","listen","base","선생님 말씀을 잘 들으세요."],
+["live","살다","I _____ in Seoul.","live","base","나는 서울에 살아요."],
+["look","보다, 바라보다","_____ at this picture.","look","base","이 그림을 보세요."],
+["lose","잃다, 지다","Don't _____ your ticket.","lose","base","표를 잃어버리지 마세요."],
+["make","만들다","We _____ a cake together.","make","base","우리는 함께 케이크를 만들어요."],
+["marry","결혼하다","My sister will _____ next year.","marry","base","내 누나는 내년에 결혼해요."],
+["meet","만나다","Let's _____ at the park.","meet","base","공원에서 만나자."],
+["move","움직이다, 이사하다","Please _____ your chair a little.","move","base","의자를 조금 옮겨 주세요."],
+["need","필요하다","I _____ a pencil.","need","base","나는 연필이 필요해요."],
+["open","열다","Please _____ the door.","open","base","문을 열어 주세요."],
+["pass","지나가다, 건네다","Please _____ me the salt.","pass","base","소금을 건네주세요."],
+["pay","지불하다, 내다","I will _____ for the ice cream.","pay","base","아이스크림 값을 내가 낼게."],
+["pick","따다, 고르다","We _____ apples in autumn.","pick","base","우리는 가을에 사과를 따요."],
+["pull","끌다, 당기다","Please _____ the door open.","pull","base","문을 당겨서 여세요."],
+["push","밀다","Don't _____ your friend.","push","base","친구를 밀지 마."],
+["put","놓다","Please _____ the book on the desk.","put","base","책을 책상 위에 놓으세요."],
+["read","읽다","I _____ a book every night.","read","base","나는 매일 밤 책을 읽어요."],
+["remember","기억하다","I _____ your name now.","remember","base","이제 네 이름이 기억나요."],
+["repeat","반복하다, 따라 말하다","Please _____ after me.","repeat","base","저를 따라 말해 보세요."],
+["rest","쉬다, 휴식","Let's _____ for ten minutes.","rest","base","10분 동안 쉬자."],
+["return","돌아가다, 돌려주다","Please _____ the book tomorrow.","return","base","내일 책을 돌려주세요."],
+["ride","타다","I can _____ a bicycle.","ride","base","나는 자전거를 탈 수 있어요."],
+["roll","구르다, 굴리다","The ball will _____ down the hill.","roll","base","공이 언덕 아래로 굴러갈 거예요."],
+["run","달리다","I can _____ very fast.","run","base","나는 아주 빨리 달릴 수 있어요."],
+["say","말하다","Please _____ hello to your teacher.","say","base","선생님께 안녕하세요 하고 인사하세요."],
+["see","보다","I can _____ a bird in the tree.","see","base","나는 나무에 있는 새를 볼 수 있어요."],
+["sell","팔다","They _____ fruit at the market.","sell","base","그들은 시장에서 과일을 팔아요."],
+["send","보내다","I will _____ a letter to my friend.","send","base","나는 친구에게 편지를 보낼 거예요."],
+["set","놓다, 차리다","Please _____ the table for dinner.","set","base","저녁 식탁을 차려 주세요."],
+["shoot","쏘다, 슛하다","He can _____ the ball into the basket.","shoot","base","그는 공을 바스켓에 넣어 슛할 수 있어요."],
+["shout","외치다, 소리치다","Don't _____ in the library.","shout","base","도서관에서 소리치지 마세요."],
+["show","보여주다","Please _____ me your picture.","show","base","네 그림을 보여 주세요."],
+["shut","닫다","Please _____ the window.","shut","base","창문을 닫아 주세요."],
+["sing","노래하다","We _____ a song together.","sing","base","우리는 함께 노래를 불러요."],
+["sit","앉다","Please _____ on this chair.","sit","base","이 의자에 앉으세요."],
+["sleep","잠자다","The baby will _____ soon.","sleep","base","아기가 곧 잘 거예요."],
+["smell","냄새가 나다, 냄새 맡다","The flowers _____ very sweet.","smell","base","꽃에서 아주 달콤한 냄새가 나요."],
+["smile","웃다, 미소 짓다","She has a pretty _____.","smile","base","그녀는 예쁜 미소를 가지고 있어요."],
+["speak","말하다","Can you _____ English?","speak","base","너는 영어를 말할 수 있니?"],
+["spend","(시간·돈을) 쓰다","I _____ one hour reading every day.","spend","base","나는 매일 한 시간을 독서에 써요."],
+["stand","서다","Please _____ in line.","stand","base","줄을 서 주세요."],
+["start","시작하다, 출발하다","The game will _____ at two.","start","base","경기는 두 시에 시작할 거예요."],
+["stay","머물다","Please _____ at home today.","stay","base","오늘은 집에 머무르세요."],
+["step","한 걸음, 밟다","Take one _____ back, please.","step","base","한 걸음 뒤로 물러서 주세요."],
+["stop","멈추다","Please _____ the car here.","stop","base","여기에서 차를 세워 주세요."],
+["strike","치다, 때리다","The clock will _____ at noon.","strike","base","시계가 정오에 종을 칠 거예요."],
+["swim","수영하다","I can _____ in the sea.","swim","base","나는 바다에서 수영할 수 있어요."],
+["take","가져가다, 잡다","Please _____ this bag with you.","take","base","이 가방을 가지고 가세요."],
+["talk","말하다, 이야기하다","I want to _____ with you.","talk","base","나는 너와 이야기하고 싶어."],
+["taste","맛보다","Please _____ this soup.","taste","base","이 수프를 맛봐 주세요."],
+["teach","가르치다","My mom will _____ me to cook.","teach","base","엄마가 나에게 요리를 가르쳐 주실 거예요."],
+["tell","이야기하다, 말하다","Please _____ me a story.","tell","base","나에게 이야기를 해 주세요."],
+["thank","감사하다","I want to _____ you for your help.","thank","base","도와주셔서 감사하다고 말하고 싶어요."],
+["think","생각하다","I _____ this book is fun.","think","base","나는 이 책이 재미있다고 생각해요."],
+["throw","던지다","Can you _____ the ball to me?","throw","base","나에게 공을 던져 줄 수 있니?"],
+["touch","만지다","Please don't _____ the picture.","touch","base","그림을 만지지 마세요."],
+["travel","여행하다","We will _____ to Jeju next week.","travel","base","우리는 다음 주에 제주로 여행을 갈 거예요."],
+["try","시도하다, 노력하다","Please _____ again.","try","base","다시 한 번 해 보세요."],
+["turn","돌다, 돌리다","Please _____ off the light.","turn","base","불을 꺼 주세요."],
+["understand","이해하다","I _____ the question now.","understand","base","이제 그 질문을 이해했어요."],
+["use","사용하다, 쓰다","May I _____ your pencil?","use","base","네 연필을 써도 될까?"],
+["visit","방문하다","We will _____ our grandmother.","visit","base","우리는 할머니를 찾아갈 거예요."],
+["wait","기다리다","Please _____ for me here.","wait","base","여기에서 나를 기다려 주세요."],
+["wake","깨다, 깨우다","I _____ up at seven every morning.","wake","base","나는 매일 아침 일곱 시에 일어나요."],
+["walk","걷다","We _____ to school together.","walk","base","우리는 함께 학교까지 걸어가요."],
+["want","원하다","I _____ a glass of water.","want","base","나는 물 한 잔을 원해요."],
+["wash","씻다","Please _____ your hands.","wash","base","손을 씻으세요."],
+["waste","낭비하다","Don't _____ water.","waste","base","물을 낭비하지 마세요."],
+["watch","보다, 지켜보다","We _____ TV after dinner.","watch","base","우리는 저녁 후에 TV를 봐요."],
+["win","이기다","Our team will _____ the game.","win","base","우리 팀이 그 경기에서 이길 거예요."],
+["write","쓰다","Please _____ your name here.","write","base","여기에 네 이름을 쓰세요."],
+["bad","나쁜","Smoking is _____ for your health.","bad","base","흡연은 건강에 나빠요."],
+["beautiful","아름다운","What a _____ flower!","beautiful","base","정말 아름다운 꽃이구나!"],
+["big","큰","An elephant is a very _____ animal.","big","base","코끼리는 아주 큰 동물이에요."],
+["bright","밝은","The room is _____ in the morning.","bright","base","아침에는 방이 밝아요."],
+["busy","바쁜","My dad is _____ today.","busy","base","우리 아빠는 오늘 바쁘세요."],
+["cheap","값싼","These socks are very _____.","cheap","base","이 양말은 아주 싸요."],
+["clean","깨끗한","My hands are _____.","clean","base","내 손은 깨끗해요."],
+["dark","어두운","The room is _____ at night.","dark","base","밤에는 방이 어두워요."],
+["dead","죽은","The tree is _____ now.","dead","base","그 나무는 지금 죽었어요."],
+["deep","깊은","The lake is very _____.","deep","base","그 호수는 아주 깊어요."],
+["dirty","더러운","Your shoes are very _____.","dirty","base","네 신발은 아주 더러워요."],
+["dry","마른, 건조한","My shirt is _____ now.","dry","base","내 셔츠는 이제 말랐어요."],
+["easy","쉬운","This book is very _____.","easy","base","이 책은 아주 쉬워요."],
+["empty","빈, 텅 빈","The box is _____.","empty","base","그 상자는 비어 있어요."],
+["enough","충분한","I have _____ time to finish it.","enough","base","그것을 끝낼 시간이 충분해요."],
+["excellent","뛰어난, 훌륭한","Your work is _____!","excellent","base","네 결과물이 훌륭해!"],
+["fair","공정한","The game is not _____.","fair","base","그 경기는 공정하지 않아요."],
+["famous","유명한","He is a _____ singer.","famous","base","그는 유명한 가수예요."],
+["far","먼","My school is _____ from my house.","far","base","우리 학교는 집에서 멀어요."],
+["fast","빠른","A train is _____ than a bus.","faster","comp","기차는 버스보다 빨라요."],
+["fat","뚱뚱한, 살찐","The cat is _____.","fat","base","그 고양이는 뚱뚱해요."],
+["fine","좋은, 맑은","The weather is _____ today.","fine","base","오늘 날씨가 좋아요."],
+["free","자유로운, 무료의","The museum is _____ on Sundays.","free","base","그 박물관은 일요일에는 무료예요."],
+["fresh","신선한","I like _____ fruit.","fresh","base","나는 신선한 과일을 좋아해요."],
+["full","가득 찬","The bus is _____.","full","base","버스가 가득 찼어요."],
+["gentle","온화한, 부드러운","She has a _____ voice.","gentle","base","그녀는 부드러운 목소리를 가지고 있어요."],
+["good","좋은","This soup is very _____.","good","base","이 수프는 아주 맛있어요."],
+["great","큰, 위대한","You did a _____ job!","great","base","너는 정말 멋진 일을 했어!"],
+["hard","단단한, 어려운","This question is very _____.","hard","base","이 문제는 아주 어려워요."],
+["heavy","무거운","My bag is too _____.","heavy","base","내 가방은 너무 무거워요."],
+["high","높은","The mountain is very _____.","high","base","그 산은 아주 높아요."],
+["kind","친절한, 종류","My teacher is very _____ to us.","kind","base","우리 선생님은 우리에게 아주 친절하세요."],
+["large","큰, 넓은","We live in a _____ house.","large","base","우리는 넓은 집에 살아요."],
+["little","작은","A _____ bird is on the branch.","little","base","작은 새가 가지 위에 있어요."],
+["long","긴","The river is very _____.","long","base","그 강은 아주 길어요."],
+["loud","소리가 큰","The music is too _____.","loud","base","그 음악은 너무 시끄러워요."],
+["low","낮은","The table is very _____.","low","base","그 탁자는 아주 낮아요."],
+["narrow","좁은","This street is very _____.","narrow","base","이 길은 아주 좁아요."],
+["near","가까운","The shop is _____ my house.","near","base","그 가게는 우리 집에서 가까워요."],
+["new","새로운","I have a _____ bike.","new","base","나는 새 자전거가 있어요."],
+["nice","좋은, 멋진","That is a very _____ hat.","nice","base","그것은 아주 멋진 모자예요."],
+["old","늙은, 오래된","My grandfather is very _____.","old","base","우리 할아버지는 아주 나이 드셨어요."],
+["poor","가난한, 불쌍한","The _____ dog has no home.","poor","base","그 불쌍한 개는 집이 없어요."],
+["pretty","예쁜","What a _____ dress!","pretty","base","정말 예쁜 드레스구나!"],
+["quick","빠른","Be _____ or you will be late.","quick","base","서둘러, 늦겠어."],
+["quiet","조용한","The library is very _____.","quiet","base","도서관은 아주 조용해요."],
+["ready","준비가 된","I am _____ for school.","ready","base","나는 학교 갈 준비가 됐어요."],
+["real","실제의, 진짜의","Is this a _____ diamond?","real","base","이것은 진짜 다이아몬드니?"],
+["rich","부유한","He is a _____ man.","rich","base","그는 부유한 사람이에요."],
+["right","오른쪽, 옳은","Raise your _____ hand.","right","base","오른손을 들어 보세요."],
+["safe","안전한","This place is _____.","safe","base","이곳은 안전해요."],
+["same","같은","We go to the _____ school.","same","base","우리는 같은 학교에 다녀요."],
+["short","짧은","My hair is _____.","short","base","내 머리카락은 짧아요."],
+["slow","느린","The turtle is very _____.","slow","base","거북이는 아주 느려요."],
+["small","작은","A mouse is a _____ animal.","small","base","쥐는 작은 동물이에요."],
+["soft","부드러운","My bed is very _____.","soft","base","내 침대는 아주 부드러워요."],
+["strange","이상한, 낯선","That sound is very _____.","strange","base","그 소리는 아주 이상해요."],
+["strong","강한","My father is very _____.","strong","base","우리 아버지는 아주 힘이 세요."],
+["stupid","어리석은","That was a _____ idea.","stupid","base","그것은 어리석은 생각이었어요."],
+["sure","확실한","Are you _____ about the answer?","sure","base","그 답이 확실해?"],
+["sweet","달콤한","This candy is very _____.","sweet","base","이 사탕은 아주 달아요."],
+["tall","키가 큰","My brother is very _____.","tall","base","내 형은 키가 아주 커요."],
+["thick","두꺼운","This book is very _____.","thick","base","이 책은 아주 두꺼워요."],
+["thin","얇은, 마른","The ice is too _____.","thin","base","얼음이 너무 얇아요."],
+["true","진짜의, 사실인","Is this story _____?","true","base","이 이야기는 사실이니?"],
+["usual","보통의, 흔한","I go to bed at my _____ time.","usual","base","나는 평소 시간에 잠자리에 들어요."],
+["weak","약한","I feel _____ today.","weak","base","나는 오늘 기운이 없어요."],
+["wide","넓은","The river is very _____.","wide","base","그 강은 아주 넓어요."],
+["wrong","잘못된","This is the _____ answer.","wrong","base","이것은 틀린 답이에요."],
+["young","젊은, 어린","My sister is very _____.","young","base","내 여동생은 아주 어려요."],
+["a / an","하나의 (관사)","I have _____ apple in my bag.","an","an","가방에 사과가 하나 있어요. (모음 소리 앞에는 an)"],
+["about","~에 관하여, ~쯤","This book is _____ animals.","about","base","이 책은 동물에 관한 책이에요."],
+["across","~을 가로질러","We walk _____ the bridge.","across","base","우리는 다리를 가로질러 걸어요."],
+["after","~후에","We play soccer _____ school.","after","base","우리는 방과 후에 축구를 해요."],
+["again","다시","Please say it _____.","again","base","다시 한 번 말해 주세요."],
+["ago","~전에","I came home two hours _____.","ago","base","나는 두 시간 전에 집에 왔어요."],
+["all","모두, 모든","We are _____ ready now.","all","base","우리는 이제 모두 준비됐어요."],
+["along","~을 따라","We walk _____ the river.","along","base","우리는 강을 따라 걸어요."],
+["always","항상","I _____ brush my teeth at night.","always","base","나는 밤에 항상 이를 닦아요."],
+["among","~사이에","She is popular _____ her friends.","among","base","그녀는 친구들 사이에서 인기가 많아요."],
+["and","그리고","I like apples _____ bananas.","and","base","나는 사과와 바나나를 좋아해요."],
+["any","어떤, 조금도","Do you have _____ milk?","any","base","우유가 조금 있니?"],
+["around","~주위에","We sit _____ the table.","around","base","우리는 탁자 주위에 앉아요."],
+["as","~처럼, ~로서","She is as tall _____ her mother.","as","base","그녀는 엄마만큼 키가 커요."],
+["at","~에","I get up _____ seven o'clock.","at","base","나는 일곱 시에 일어나요."],
+["away","떨어져, 다른 곳으로","The bird flew _____.","away","base","그 새는 멀리 날아갔어요."],
+["back","뒤에, 돌아서","Please come _____ home soon.","back","base","곧 집으로 돌아오세요."],
+["because","~때문에","I am happy _____ it is my birthday.","because","base","생일이라서 행복해요."],
+["before","~전에","Wash your hands _____ dinner.","before","base","저녁 먹기 전에 손을 씻으세요."],
+["behind","~뒤에","The cat is _____ the door.","behind","base","고양이가 문 뒤에 있어요."],
+["below","~아래에","Write your name _____ the line.","below","base","선 아래에 네 이름을 쓰세요."],
+["beside","~곁에","Please sit _____ me.","beside","base","내 옆에 앉아 주세요."],
+["between","~사이에","The ball is _____ the two chairs.","between","base","공이 두 의자 사이에 있어요."],
+["but","그러나, 하지만","I am small _____ strong.","but","base","나는 작지만 강해요."],
+["by","~옆에, ~로","I go to school _____ bus.","by","base","나는 버스를 타고 학교에 가요."],
+["down","아래로","The cat came _____ from the tree.","down","base","고양이가 나무에서 내려왔어요."],
+["every","모든, 매","I read a book _____ night.","every","base","나는 매일 밤 책을 읽어요."],
+["for","~을 위하여, ~동안","This gift is _____ you.","for","base","이 선물은 너를 위한 거예요."],
+["from","~로부터","I am _____ Korea.","from","base","나는 한국에서 왔어요."],
+["front","앞, 정면","Please sit in the _____ row.","front","base","앞줄에 앉아 주세요."],
+["he","그 (남자)","My dad is a doctor, and _____ works at a hospital.","he","base","우리 아빠는 의사이고, 그는 병원에서 일하세요."],
+["here","여기에","Please come _____.","here","base","이리로 오세요."],
+["how","어떻게, 얼마나","_____ old are you?","How","cap","너는 몇 살이니? (문장 첫 글자는 대문자)"],
+["if","만약 ~라면","I will go _____ it is sunny.","if","base","날씨가 맑으면 갈 거예요."],
+["in","~안에","The cat is _____ the box.","in","base","고양이가 상자 안에 있어요."],
+["into","~속으로","The dog jumped _____ the water.","into","base","개가 물속으로 뛰어들었어요."],
+["it","그것","Where is my bag? I can't find _____.","it","base","내 가방이 어디 있지? 찾을 수가 없어."],
+["just","방금, 단지","I _____ finished my homework.","just","base","나는 방금 숙제를 끝냈어요."],
+["left","왼쪽","Turn _____ at the corner.","left","base","모퉁이에서 왼쪽으로 도세요."],
+["lot","많음","I have a _____ of friends.","lot","base","나는 친구가 많아요."],
+["many","많은","How _____ apples are there?","many","base","사과가 몇 개 있니?"],
+["middle","한가운데","The table is in the _____ of the room.","middle","base","탁자가 방 한가운데에 있어요."],
+["much","많은, 많이","How _____ water do you want?","much","base","물을 얼마나 원하니?"],
+["never","결코 ~않다","I _____ eat candy at night.","never","base","나는 밤에 절대 사탕을 먹지 않아요."],
+["no","아니다, 없는","There is _____ milk in the cup.","no","base","컵에 우유가 없어요."],
+["not","~이 아니다","I am _____ hungry now.","not","base","나는 지금 배고프지 않아요."],
+["of","~의","This is a picture _____ my family.","of","base","이것은 우리 가족 사진이에요."],
+["off","떨어져, 꺼진","Please turn _____ the TV.","off","base","TV를 꺼 주세요."],
+["often","자주","I _____ play soccer after school.","often","base","나는 방과 후에 자주 축구를 해요."],
+["on","~위에","The book is _____ the desk.","on","base","책이 책상 위에 있어요."],
+["only","오직, 단지","I have _____ one pencil.","only","base","나는 연필이 하나밖에 없어요."],
+["or","또는","Do you want tea _____ juice?","or","base","차를 마실래, 주스를 마실래?"],
+["other","다른, 그 밖의","One is red, and the _____ is blue.","other","base","하나는 빨간색이고 다른 하나는 파란색이에요."],
+["out","밖에, 밖으로","Please go _____ of the room.","out","base","방 밖으로 나가 주세요."],
+["over","~위쪽에, ~너머","The bird flies _____ the house.","over","base","새가 집 위로 날아가요."],
+["she","그녀","My sister is kind, and _____ helps me a lot.","she","base","내 여동생은 친절하고 나를 많이 도와줘요."],
+["so","그래서, 그렇게","I am tired, _____ I will sleep.","so","base","나는 피곤해서 잘 거예요."],
+["some","약간의, 몇몇","I want _____ water, please.","some","base","물을 조금 주세요."],
+["than","~보다","A train is faster _____ a bus.","than","base","기차가 버스보다 빨라요."],
+["that","그것, 저것","This is my bag, and _____ is yours.","that","base","이것은 내 가방이고 저것은 네 거야."],
+["the","그 (정관사)","Look at _____ moon tonight.","the","base","오늘 밤 달을 보세요."],
+["then","그때, 그러고 나서","First wash your hands, _____ eat.","then","base","먼저 손을 씻고, 그다음 먹으세요."],
+["there","그곳에","Please put the box _____.","there","base","상자를 저기에 놓아 주세요."],
+["they","그들","I have two cats, and _____ are very cute.","they","base","나는 고양이 두 마리가 있고, 그들은 아주 귀여워요."],
+["this","이것","What is _____ in your hand?","this","base","네 손에 있는 이것은 무엇이니?"],
+["through","~을 통해서","The train goes _____ the tunnel.","through","base","기차가 터널을 통과해요."],
+["till","~까지","We play outside _____ dinner.","till","base","우리는 저녁 먹을 때까지 밖에서 놀아요."],
+["to","~으로, ~에게","I walk _____ school every day.","to","base","나는 매일 학교까지 걸어가요."],
+["together","함께","We study _____ every evening.","together","base","우리는 매일 저녁 함께 공부해요."],
+["too","또한, 너무","I like it, _____.","too","base","나도 그것을 좋아해요."],
+["under","~아래에","The cat is _____ the table.","under","base","고양이가 탁자 아래에 있어요."],
+["until","~까지 (계속)","Wait here _____ I come back.","until","base","내가 돌아올 때까지 여기서 기다려."],
+["up","위로","Please get _____ early tomorrow.","up","base","내일 일찍 일어나세요."],
+["very","아주, 매우","This soup is _____ hot.","very","base","이 수프는 아주 뜨거워요."],
+["we","우리","My brother and I like soccer, so _____ play every day.","we","base","형과 나는 축구를 좋아해서 매일 해요."],
+["well","잘","She sings very _____.","well","base","그녀는 노래를 아주 잘해요."],
+["what","무엇","I don't know _____ to do.","what","base","나는 무엇을 해야 할지 모르겠어요."],
+["when","언제, ~할 때","I was reading a book _____ you called.","when","base","네가 전화했을 때 나는 책을 읽고 있었어."],
+["where","어디","I know _____ he lives.","where","base","나는 그가 어디 사는지 알아요."],
+["which","어느 것","I don't know _____ one to wear.","which","base","나는 어느 것을 입어야 할지 모르겠어."],
+["who","누구","I know the boy _____ won the game.","who","base","나는 경기에서 이긴 소년을 알아요."],
+["why","왜","I don't know _____ he is sad.","why","base","나는 그가 왜 슬픈지 몰라요."],
+["with","~와 함께","I play _____ my dog after school.","with","base","나는 방과 후에 개와 놀아요."],
+["yet","아직","I am not ready _____.","yet","base","나는 아직 준비가 안 됐어요."],
+["you","너, 당신","Can I help _____?","you","base","내가 너를 도와줄까?"],
+["can","~할 수 있다","I _____ swim very well.","can","base","나는 수영을 아주 잘할 수 있어요."],
+["must","~해야 한다","You _____ do your homework first.","must","base","너는 먼저 숙제를 해야 해."],
+["shall","~할 것이다, ~할까","I _____ call you tomorrow.","shall","base","내가 내일 너에게 전화할게."],
+["will","~할 것이다","I _____ help you tomorrow.","will","base","내가 내일 너를 도와줄게."],
+["bye","안녕 (헤어질 때)","_____! See you tomorrow.","Bye","cap","안녕! 내일 봐. (문장 첫 글자는 대문자)"],
+["hello","안녕하세요","_____! Nice to meet you.","Hello","cap","안녕하세요! 만나서 반가워요. (문장 첫 글자는 대문자)"],
+["hi","안녕","_____! How are you?","Hi","cap","안녕! 어떻게 지내? (문장 첫 글자는 대문자)"],
+["dear","친애하는, 존경하는","_____ Mom, I miss you.","Dear","cap","사랑하는 엄마, 보고 싶어요. (편지 첫머리는 대문자)"],
+["excuse","용서하다, 실례합니다","_____ me, where is the bank?","Excuse","cap","실례합니다, 은행이 어디에 있죠? (문장 첫 글자는 대문자)"],
+["pardon","용서, 뭐라고요","_____? I can't hear you.","Pardon","cap","뭐라고요? 잘 안 들려요. (문장 첫 글자는 대문자)"],
+["please","제발, 부디","_____ open the window.","Please","cap","창문을 열어 주세요. (문장 첫 글자는 대문자)"],
+["okay","좋아, 괜찮아","_____, let's go now.","Okay","cap","좋아, 이제 가자. (문장 첫 글자는 대문자)"],
+["oh","오, 어머","_____! What a big dog!","Oh","cap","어머! 정말 큰 개구나! (문장 첫 글자는 대문자)"],
+["yeah","응, 그래","_____ , I like it.","Yeah","cap","응, 나 그것 좋아해. (문장 첫 글자는 대문자)"],
+["yes","네, 그래","_____ , I can help you.","Yes","cap","응, 내가 도와줄 수 있어. (문장 첫 글자는 대문자)"],
+["welcome","환영하다, 환영합니다","_____ to our school!","Welcome","cap","우리 학교에 온 것을 환영해요! (문장 첫 글자는 대문자)"],
+["age","나이","What is your _____?","age","base","네 나이는 어떻게 되니?"],
+["base","기초, 바닥","The _____ of the tower is strong.","base","base","그 탑의 기초는 튼튼해요."],
+["basket","바구니","The fruit is in the _____.","basket","base","과일이 바구니 안에 있어요."],
+["bench","긴 의자","We sit on a _____ in the park.","bench","base","우리는 공원에서 긴 의자에 앉아요."],
+["case","경우, 상자","In this _____, we must wait.","case","base","이런 경우에는 우리가 기다려야 해요."],
+["cassette","카세트테이프","My dad keeps an old _____.","cassette","base","우리 아빠는 오래된 카세트테이프를 가지고 있어요."],
+["chance","기회","Give me one more _____.","chance","base","한 번만 더 기회를 주세요."],
+["coin","동전","I found a _____ on the street.","coin","base","나는 길에서 동전을 하나 주웠어요."],
+["course","과정, 코스","I take a swimming _____.","course","base","나는 수영 강좌를 들어요."],
+["danger","위험","The sign says \"_____\".","danger","base","그 표지판에는 \"위험\"이라고 쓰여 있어요."],
+["dial","다이얼을 돌리다","Please _____ this number.","dial","base","이 번호로 전화를 걸어 주세요."],
+["dollar","달러","This toy is five _____.","dollars","plural","이 장난감은 5달러예요."],
+["dream","꿈","My _____ is to be a pilot.","dream","base","내 꿈은 조종사가 되는 거예요."],
+["engine","엔진, 기관","The car has a small _____.","engine","base","그 차는 작은 엔진을 가지고 있어요."],
+["fact","사실","That is a _____ , not a story.","fact","base","그것은 이야기가 아니라 사실이에요."],
+["flag","깃발","The _____ is red and blue.","flag","base","그 깃발은 빨간색과 파란색이에요."],
+["fool","바보","Don't be a _____!","fool","base","바보처럼 굴지 마!"],
+["gas","가스, 휘발유","The car needs _____.","gas","base","그 차는 휘발유가 필요해요."],
+["god","신, 하나님","They pray to a _____.","god","base","그들은 신에게 기도해요."],
+["group","모임, 무리","Our _____ has five children.","group","base","우리 모둠은 아이가 다섯 명이에요."],
+["half","절반","I ate _____ of the cake.","half","base","나는 케이크의 절반을 먹었어요."],
+["hole","구멍","There is a _____ in my sock.","hole","base","내 양말에 구멍이 있어요."],
+["idea","생각, 아이디어","That is a good _____.","idea","base","그것은 좋은 생각이에요."],
+["interest","흥미, 관심","I have an _____ in science.","interest","base","나는 과학에 흥미가 있어요."],
+["luck","행운","Good _____ on your test!","luck","base","시험에 행운을 빌어요!"],
+["mail","우편물","The _____ comes every morning.","mail","base","우편물은 매일 아침 와요."],
+["matter","문제, 일","What is the _____?","matter","base","무슨 일이야?"],
+["meter","미터","The pool is twenty _____ long.","meters","plural","그 수영장은 길이가 20미터예요."],
+["money","돈","I save _____ in my piggy bank.","money","base","나는 저금통에 돈을 모아요."],
+["name","이름","What is your _____?","name","base","네 이름은 무엇이니?"],
+["news","뉴스, 소식","My dad watches the _____ every night.","news","base","우리 아빠는 매일 밤 뉴스를 봐요."],
+["noise","소음, 소리","Don't make a _____ , please.","noise","base","소리 내지 마세요."],
+["peace","평화","We want _____ in the world.","peace","base","우리는 세계의 평화를 원해요."],
+["piece","조각, 한 개","I ate a _____ of cake.","piece","base","나는 케이크 한 조각을 먹었어요."],
+["plan","계획","What is your _____ for today?","plan","base","오늘 계획이 뭐니?"],
+["post","우편, 기둥","I send the card by _____.","post","base","나는 그 카드를 우편으로 보내요."],
+["present","선물, 현재","This is a _____ for you.","present","base","이것은 너를 위한 선물이에요."],
+["ribbon","리본","She has a pink _____ in her hair.","ribbon","base","그녀는 머리에 분홍 리본을 하고 있어요."],
+["seat","좌석, 자리","Please take your _____.","seat","base","자리에 앉아 주세요."],
+["service","서비스, 봉사","The food and _____ are good here.","service","base","여기는 음식과 서비스가 좋아요."],
+["sound","소리","I hear a strange _____.","sound","base","나는 이상한 소리를 들었어요."],
+["speed","속력, 속도","The car runs at high _____.","speed","base","그 차는 빠른 속도로 달려요."],
+["stamp","우표","I put a _____ on the letter.","stamp","base","나는 편지에 우표를 붙여요."],
+["thing","물건, 것","What is that _____ on the desk?","thing","base","책상 위에 있는 저 물건은 무엇이니?"],
+["ticket","표","I buy a _____ for the movie.","ticket","base","나는 영화 표를 사요."],
+["trip","여행","We go on a _____ to Busan.","trip","base","우리는 부산으로 여행을 가요."],
+["war","전쟁","No one wants a _____.","war","base","아무도 전쟁을 원하지 않아요."],
+["excite","흥분시키다, 신나게 하다","The game will _____ the children.","excite","base","그 경기는 아이들을 신나게 할 거예요."],
+["few","적은, 몇몇의","Only a _____ students came early.","few","base","몇몇 학생만 일찍 왔어요."],
+["I","나","_____ am ten years old.","I","base","나는 열 살이에요."],
+["March","3월","My birthday is in _____.","March","cap","내 생일은 3월이에요. (달 이름은 대문자)"],
+["May","5월","We go on a picnic in _____.","May","cap","우리는 5월에 소풍을 가요. (달 이름은 대문자)"],
+["oil","기름","Put some _____ in the pan.","oil","base","팬에 기름을 조금 두르세요."],
+["road","길, 도로","Cars go on the _____.","road","base","차들이 도로로 다녀요."],
+["smoke","연기","I see _____ from the chimney.","smoke","base","굴뚝에서 연기가 보여요."],
+["song","노래","This _____ is very pretty.","song","base","이 노래는 아주 예뻐요."],
+["student","학생","She is a good _____ at our school.","student","base","그녀는 우리 학교의 좋은 학생이에요."],
+["time","시간, 때","What _____ is it now?","time","base","지금 몇 시니?"]
+];
+/* WORDS_DATA_END */
+</script>
 <script>
 (function(){
 'use strict';
@@ -304,7 +1168,8 @@ function stampNow(){ return new Date().toISOString(); }
    상태 · 핵심 규칙 (Logic)
    ======================================================================== */
 function emptyState(){
-  return { v: 1, childName: '', weeks: {}, ledger: [], redemptions: [], createdAt: stampNow() };
+  return { v: 1, childName: '', weeks: {}, ledger: [], redemptions: [], createdAt: stampNow(),
+           words: { start: '', days: {} } };
 }
 
 function migrate(o){
@@ -313,6 +1178,10 @@ function migrate(o){
   if (!Array.isArray(o.ledger)) o.ledger = [];
   if (!Array.isArray(o.redemptions)) o.redemptions = [];
   if (typeof o.childName !== 'string') o.childName = '';
+  // 영단어 학습 상태(없던 기록도 그대로 살린다 · 하위 호환)
+  if (!o.words || typeof o.words !== 'object') o.words = {};
+  if (typeof o.words.start !== 'string') o.words.start = '';
+  if (!o.words.days || typeof o.words.days !== 'object' || Array.isArray(o.words.days)) o.words.days = {};
   o.v = 1;
   return o;
 }
@@ -467,7 +1336,7 @@ var Logic = {
     var ds = weekDates(mon), total = 0;
     for (var i = 0; i < S.ledger.length; i++){
       var e = S.ledger[i];
-      if (ds.indexOf(e.dateKey) >= 0 && (e.type === 'daily' || e.type === 'weekly')) total += e.amount;
+      if (ds.indexOf(e.dateKey) >= 0 && (e.type === 'daily' || e.type === 'weekly' || e.type === 'words')) total += e.amount;
     }
     return total;
   }
@@ -595,11 +1464,28 @@ function render(){
   if (root){
     if (view === 'today') root.innerHTML = viewToday(today);
     else if (view === 'week') root.innerHTML = viewWeek(today);
+    else if (view === 'words') root.innerHTML = viewWords(today);
     else root.innerHTML = viewWallet(today);
   }
   renderTabs();
   renderSheet();
   save();
+
+  // 영단어 퀴즈 입력칸 포커스 · 오답 흔들기
+  if (view === 'words' && wmode === 'quiz'){
+    var ansEl = document.getElementById('wans');
+    if (ansEl){
+      if (wfocus){
+        try { ansEl.focus(); ansEl.setSelectionRange(ansEl.value.length, ansEl.value.length); } catch (e) {}
+        wfocus = false;
+      }
+      if (wshake){
+        ansEl.classList.add('shake');
+        setTimeout(function(){ ansEl.classList.remove('shake'); }, 460);
+        wshake = false;
+      }
+    }
+  }
 }
 
 function renderTabs(){
@@ -607,6 +1493,7 @@ function renderTabs(){
   if (!el) return;
   var items = [
     { v: 'today',  i: '🏠', t: '오늘' },
+    { v: 'words',  i: '📚', t: '영단어' },
     { v: 'week',   i: '🗓️', t: '이번 주' },
     { v: 'wallet', i: '🪙', t: '코인' }
   ];
@@ -671,6 +1558,16 @@ function viewToday(today){
   }
 
   out += heroHTML(bal);
+
+  // 오늘의 영단어 안내
+  if (wordsReady()){
+    var wdToday = S.words && S.words.days ? S.words.days[today] : null;
+    var wdone = !!(wdToday && wdToday.done);
+    out += '<button class="banner wbanner" style="margin:0 0 14px" data-act="tab" data-view="words">📚 <span>' +
+      (wdone ? '<b>오늘의 영단어 5개 완료!</b> 복습하러 가기'
+             : '<b>오늘의 영단어 5개</b> · ' + lessonOf(today) + '일차 · 다 맞히면 코인 +1') +
+      '</span></button>';
+  }
 
   // 오늘의 미션
   var title = isToday ? '오늘의 미션' : longDate(cursor) + ' 미션';
@@ -884,6 +1781,311 @@ function viewWallet(today){
   }
   out += '</section>';
   return out;
+}
+
+/* ========================================================================
+   초등 필수 영단어 800 · 매일 5단어 학습
+   ======================================================================== */
+var WORDS_PER_DAY = 5;
+var WORD_TOTAL_DAYS = 160;
+var WORD_LIST = (typeof WORDS_800 !== 'undefined' && WORDS_800) ? WORDS_800.map(function(a){
+  return { word: a[0], meaning: a[1], example: a[2], answer: a[3], hint: a[4], exampleKo: a[5] };
+}) : [];
+
+var HINT_TEXT = {
+  base: '기본형 그대로 넣어요',
+  an: '모음 소리 앞에는 an을 써요',
+  plural: '여러 개(복수형)예요 — 끝에 -s / -es',
+  plural_irr: '여러 개(복수형)인데 모양이 달라져요',
+  third: '주어가 3인칭 단수예요 — 동사에 -s / -es',
+  past: '동사 과거형이에요 — 끝에 -ed',
+  past_irr: '과거형인데 모양이 달라져요 (불규칙 동사)',
+  ing: '동사의 -ing 형태예요',
+  comp: '~보다 더 (비교급) — -er',
+  sup: '가장 ~ (최상급) — -est',
+  cap: '첫 글자를 대문자로 써요'
+};
+
+var wmode = 'learn';      // learn | quiz | result
+var wdate = null;         // 이 화면에서 공부하는 날짜(오늘 또는 복습할 날)
+var wi = 0;               // 카드·문제 번호
+var wflip = false;        // 카드가 뜻을 보여 주는 중인지
+var wfeedback = null;     // { ok, msg }
+var winput = '';          // 입력 중인 답
+var wfocus = false;       // 렌더 후 입력칸에 포커스할지
+var wshake = false;       // 오답 흔들기
+
+function wordsReady(){ return WORD_LIST.length >= WORDS_PER_DAY; }
+
+function ensureWordStart(){
+  if (!S.words || typeof S.words !== 'object') S.words = { start: '', days: {} };
+  if (!S.words.days || typeof S.words.days !== 'object' || Array.isArray(S.words.days)) S.words.days = {};
+  if (!S.words.start) S.words.start = todayISO();
+  return S.words.start;
+}
+
+function wDiff(a, b){ return Math.round((dateOf(a).getTime() - dateOf(b).getTime()) / 86400000); }
+
+// 날짜 → 몇 일차 단어(1~160). 160일을 지나면 다시 1일차부터 복습 라운드.
+function lessonOf(date){
+  var start = ensureWordStart();
+  var d = wDiff(date, start);
+  if (d < 0) d = 0;
+  return (d % WORD_TOTAL_DAYS) + 1;
+}
+
+function wordsOfLesson(n){
+  var from = (n - 1) * WORDS_PER_DAY;
+  return WORD_LIST.slice(from, from + WORDS_PER_DAY);
+}
+function wordsOfDate(date){ return wordsOfLesson(lessonOf(date)); }
+
+function wordDay(date){
+  ensureWordStart();
+  var d = S.words.days[date];
+  if (!d || typeof d !== 'object'){
+    d = S.words.days[date] = { lesson: lessonOf(date), tries: {}, correct: {}, done: false, coin: false };
+  }
+  if (!d.tries || typeof d.tries !== 'object') d.tries = {};
+  if (!d.correct || typeof d.correct !== 'object') d.correct = {};
+  d.lesson = d.lesson || lessonOf(date);
+  return d;
+}
+
+function wordCorrectCount(date){
+  var d = S.words && S.words.days ? S.words.days[date] : null;
+  if (!d || !d.correct) return 0;
+  var n = 0;
+  for (var k in d.correct) if (d.correct[k]) n++;
+  return n;
+}
+function wordAllCorrect(date){
+  var list = wordsOfDate(date), d = S.words.days[date];
+  if (!d) return false;
+  for (var i = 0; i < list.length; i++) if (!d.correct[i]) return false;
+  return list.length > 0;
+}
+
+function normAns(s){
+  return String(s == null ? '' : s).toLowerCase().replace(/[.!?,]/g, '').replace(/\s+/g, ' ').trim();
+}
+function checkAnswer(input, answer){
+  var a = normAns(input), b = normAns(answer);
+  return a !== '' && a === b;
+}
+
+// 5문제를 모두 맞히면 코인 +1 (그날 한 번만 · 기존 코인 장부에 함께 기록)
+function awardWordCoin(date){
+  var d = wordDay(date);
+  if (d.coin) return false;
+  if (date !== todayISO()) return false;
+  for (var i = 0; i < S.ledger.length; i++){
+    if (S.ledger[i].type === 'words' && S.ledger[i].dateKey === date){ d.coin = true; return false; }
+  }
+  d.coin = true;
+  d.coinAt = stampNow();
+  S.ledger.push({ id: uid(), at: stampNow(), type: 'words', amount: 1,
+                  label: '오늘의 영단어 5개 완성', dateKey: date });
+  return true;
+}
+
+function speakWord(word){
+  if (!word) return;
+  var text = String(word).replace(/[^A-Za-z' ]/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!text) return;
+  try {
+    if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined'){
+      toast('이 기기에서는 소리를 들을 수 없어요'); return;
+    }
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; u.rate = 0.8; u.pitch = 1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+  } catch (e) { toast('소리를 내지 못했어요'); }
+}
+
+function submitWordAnswer(){
+  var date = wdate || todayISO();
+  var list = wordsOfDate(date);
+  var day = wordDay(date);
+  var w = list[wi];
+  if (!w) return;
+  if (winput == null || !String(winput).trim()){ toast('답을 먼저 적어 주세요'); return; }
+  if (checkAnswer(winput, w.answer)){
+    day.correct[wi] = true;
+    day.done = wordAllCorrect(date);
+    wfeedback = { ok: true, msg: '정답! ' + w.answer + ' 🎉' };
+    winput = '';
+    if (day.done) awardWordCoin(date);
+  } else {
+    day.tries[wi] = (day.tries[wi] || 0) + 1;
+    wfeedback = { ok: false, msg: '조금 달라요. 다시 해 봐요!' };
+    wshake = true;
+    wfocus = true;
+  }
+  render();
+}
+
+/* ---------- 영단어 화면 ---------- */
+function viewWords(today){
+  if (!wordsReady()){
+    return '<section class="card"><div class="empty"><div class="kk" aria-hidden="true">' + kkyu('face') + '</div>' +
+      '<p>단어장을 불러오지 못했어요.<br>인터넷을 확인하고 다시 열어 주세요.</p></div></section>';
+  }
+  ensureWordStart();
+  if (!wdate) wdate = today;
+  if (wdate > today) wdate = today;
+
+  var date = wdate;
+  var isToday = date === today;
+  var lesson = lessonOf(date);
+  var list = wordsOfLesson(lesson);
+  wordDay(date);
+  var done = wordCorrectCount(date);
+
+  var head = '<section class="card" style="padding:15px 16px">' +
+    '<div class="card-h" style="margin-bottom:9px"><div><h2>' + (isToday ? '오늘의 5단어' : '복습 · ' + mdOf(date)) + '</h2>' +
+      '<p class="sub">' + (isToday ? lesson + '일차 / ' + WORD_TOTAL_DAYS + '일 · 매일 5개씩' : longDate(date) + '에 배운 단어') + '</p></div>' +
+      (isToday ? '<span class="chip" style="pointer-events:none">' + done + '/5</span>'
+               : '<button class="chip plain" data-act="wordToday">오늘로</button>') +
+    '</div>' +
+    '<div class="wbar"><i style="width:' + Math.round(done / list.length * 100) + '%"></i></div>' +
+  '</section>';
+
+  if (wmode === 'quiz') return head + wordQuizHTML(date, today);
+  if (wmode === 'result') return head + wordResultHTML(date, today);
+  return head + wordCardsHTML(date, today) + wordReviewHTML(today);
+}
+
+function wordCardsHTML(date, today){
+  var list = wordsOfDate(date), day = wordDay(date);
+  if (wi > list.length - 1) wi = 0;
+  var w = list[wi];
+  var answered = list.map(function(x, i){ return !!day.correct[i]; });
+  var allDone = answered.every(function(v){ return v; });
+
+  return '<section class="card">' +
+    '<div class="card-h"><div><h2>스펠링 ↔ 뜻</h2>' +
+      '<p class="sub">카드를 누르면 영어와 한글이 번갈아 나와요</p></div>' +
+      '<span class="chip plain" style="pointer-events:none">' + (wi + 1) + ' / ' + list.length + '</span></div>' +
+    '<div class="flash' + (wflip ? ' ko' : '') + '" data-act="flip" role="button" tabindex="0" ' +
+      'aria-label="' + (wflip ? '뜻을 보고 있어요. 누르면 영어 스펠링' : '영어 스펠링을 보고 있어요. 누르면 뜻') + '">' +
+      '<button class="spk" data-act="speak" aria-label="발음 듣기">🔊</button>' +
+      (answered[wi] ? '<div class="flash-mark">⭐</div>' : '') +
+      (wflip
+        ? '<div class="flash-ko">' + esc(w.meaning) + '</div><div class="flash-sub">' + esc(w.word) + '</div>'
+        : '<div class="flash-en">' + esc(w.word) + '</div><div class="flash-sub">👆 눌러서 뜻 보기</div>') +
+    '</div>' +
+    '<div class="wnav">' +
+      '<button class="wbtn" data-act="prevCard" aria-label="이전 단어"' + (wi === 0 ? ' disabled' : '') + '>‹</button>' +
+      '<div class="wdots">' + list.map(function(x, i){
+        return '<button class="wdot' + (i === wi ? ' on' : '') + (answered[i] ? ' ok' : '') + '" data-act="gotoCard" data-i="' + i + '" aria-label="' + (i + 1) + '번째 단어"></button>';
+      }).join('') + '</div>' +
+      '<button class="wbtn" data-act="nextCard" aria-label="다음 단어"' + (wi === list.length - 1 ? ' disabled' : '') + '>›</button>' +
+    '</div>' +
+    '<p class="taptip">👆 카드를 누르면 스펠링 ↔ 뜻</p>' +
+    '<button class="btn" style="margin-top:8px" data-act="startQuiz">' +
+      (allDone ? '⭐ 5문제 모두 맞혔어요 · 다시 보기' : '빈칸 퀴즈 5문제 풀기') + '</button>' +
+  '</section>';
+}
+
+function wordQuizHTML(date, today){
+  var list = wordsOfDate(date), day = wordDay(date);
+  if (wi > list.length - 1) wi = list.length - 1;
+  var w = list[wi];
+  var answered = !!day.correct[wi];
+  var tries = day.tries[wi] || 0;
+  var sent = esc(w.example).replace('_____', '<span class="blank">_____</span>');
+  var hint = HINT_TEXT[w.hint] || HINT_TEXT.base;
+  var fb = '';
+  if (answered){
+    fb = '<div class="wfb ok">⭕ 정답! <b>' + esc(w.answer) + '</b> — ' + esc(w.meaning) + '</div>';
+  } else if (wfeedback && !wfeedback.ok){
+    fb = '<div class="wfb no">❌ ' + esc(wfeedback.msg) + '</div>';
+  }
+  var extra = '';
+  if (answered){
+    extra = '<p class="qko">' + esc(w.exampleKo) + '</p>';
+  } else if (tries >= 2){
+    extra = '<p class="qko">힌트: ' + normAns(w.answer).length + '글자이고, 첫 글자는 <b>' + esc(String(w.answer).charAt(0)) + '</b> 예요.</p>';
+  }
+
+  return '<section class="card">' +
+    '<div class="card-h"><div><h2>빈칸 채우기</h2>' +
+      '<p class="sub">문제 ' + (wi + 1) + ' / ' + list.length + ' · ' + wordCorrectCount(date) + '개 맞혔어요</p></div>' +
+      '<span class="chip plain" style="pointer-events:none">' + (date === today ? '오늘' : '복습') + '</span></div>' +
+    '<div class="qbox">' +
+      '<p class="qen">' + sent + '</p>' +
+      '<p class="qhint">💡 힌트: ' + hint + '</p>' +
+      extra +
+    '</div>' +
+    (answered
+      ? '<button class="btn mint" data-act="nextQ">' + (wi === list.length - 1 ? '결과 보기' : '다음 문제 →') + '</button>'
+      : '<input class="input wans" id="wans" type="text" inputmode="text" autocomplete="off" autocorrect="off" ' +
+          'autocapitalize="off" spellcheck="false" placeholder="빈칸에 들어갈 영어를 적어요" value="' + esc(winput) + '" maxlength="30">' +
+        fb +
+        '<button class="btn" style="margin-top:10px" data-act="submitAns">확인</button>') +
+    '<button class="btn soft sm" style="margin-top:8px" data-act="backCards">카드로 돌아가기</button>' +
+  '</section>';
+}
+
+function wordResultHTML(date, today){
+  var list = wordsOfDate(date), day = wordDay(date);
+  var first = 0;
+  for (var i = 0; i < list.length; i++) if (day.correct[i] && !(day.tries[i])) first++;
+  var isToday = date === today;
+  var perfect = first === list.length;
+
+  var out = '<section class="card">' +
+    '<div class="empty" style="padding:6px 8px 2px"><div class="kk" aria-hidden="true">' + kkyu('cheer') + '</div>' +
+      '<p style="font-size:15.5px;font-weight:800;color:#43395E;margin:10px 0 2px">' +
+        (perfect ? '완벽해요! 한 번에 다 맞혔어요 🎉' : '5문제 모두 맞혔어요! 🎉') + '</p>' +
+      '<p class="sub" style="margin-bottom:0">' + (isToday ? lessonOf(date) + '일차 완료 · ' + mdOf(date) : longDate(date) + ' 복습') + '</p></div>' +
+    '<div class="wrecap">' + list.map(function(w, idx){
+      var mark = day.correct[idx] ? ((day.tries[idx] || 0) > 0 ? '⭕' : '⭐') : '·';
+      return '<div class="wrrow"><div class="wrt"><b>' + esc(w.word) + '</b><span>' + esc(w.meaning) + '</span></div>' +
+        '<span class="wrok">' + mark + '</span></div>';
+    }).join('') + '</div>';
+
+  if (isToday){
+    out += day.coin
+      ? '<div class="banner ok" style="margin-top:14px">🪙 <span><b>코인 +1</b>을 받았어요! 뀨뀨가 코인을 가져왔어요.</span></div>'
+      : '<div class="banner" style="margin-top:14px">🪙 <span>오늘 몫은 이미 받았어요. 내일 또 만나요!</span></div>';
+  } else {
+    out += '<div class="banner" style="margin-top:14px">📖 <span>복습이에요. 코인은 <b>오늘의 5단어</b>에서 받아요.</span></div>';
+  }
+
+  out += '<div style="display:flex;gap:8px;margin-top:12px">' +
+      '<button class="btn ghost sm" data-act="backCards">카드로 보기</button>' +
+      '<button class="btn sm mint" data-act="retryQuiz">한 번 더 풀기</button>' +
+    '</div>' +
+    '<p class="note" style="text-align:center">내일은 ' + (lessonOf(date) % WORD_TOTAL_DAYS + 1) + '일차 단어 5개가 기다려요!</p>' +
+  '</section>';
+  return out;
+}
+
+function wordReviewHTML(today){
+  var days = S.words && S.words.days ? S.words.days : {};
+  var keys = Object.keys(days).filter(function(k){
+    return k !== today && k <= todayISO() && wordCorrectCount(k) > 0;
+  }).sort().reverse().slice(0, 8);
+  if (!keys.length){
+    return '<section class="card" style="padding:13px 16px"><p class="sub" style="margin:0">📚 하루 5개씩 160일이면 교육부 초등 영단어 800개를 모두 만나요. 오늘도 화이팅!</p></section>';
+  }
+  return '<section class="card">' +
+    '<div class="card-h" style="margin-bottom:8px"><div><h2>지난 단어 복습</h2>' +
+      '<p class="sub">배운 날의 5단어를 다시 외워 봐요</p></div></div>' +
+    keys.map(function(k){
+      var d = days[k];
+      var lesson = d.lesson || lessonOf(k);
+      var total = wordsOfLesson(lesson).length;
+      return '<button class="wdrow" data-act="openReview" data-date="' + k + '">' +
+        '<span class="wdbadge">' + lesson + '</span>' +
+        '<span class="wdmain"><span class="wdt">' + longDate(k) + '</span>' +
+        '<span class="wds">' + wordCorrectCount(k) + '/' + total + ' 맞힘' + (d.coin ? ' · 코인 +1' : '') + '</span></span>' +
+        '<span class="wdact">복습</span></button>';
+    }).join('') +
+  '</section>';
 }
 
 /* ========================================================================
@@ -1159,6 +2361,9 @@ document.addEventListener('click', function(ev){
   switch (act){
     case 'tab':
       view = el.dataset.view; sheet = null;
+      if (view === 'words' && wmode !== 'quiz'){
+        wdate = todayISO(); wmode = 'learn'; wi = 0; wflip = false; wfeedback = null; winput = '';
+      }
       window.scrollTo({ top: 0, behavior: 'auto' });
       render(); break;
 
@@ -1268,6 +2473,57 @@ document.addEventListener('click', function(ev){
     case 'delMission':
       delMission(el.dataset.mid); break;
 
+    /* ---------- 영단어 ---------- */
+    case 'flip':
+      wflip = !wflip; render(); break;
+
+    case 'speak':
+      speakWord((wordsOfDate(wdate || todayISO())[wi] || {}).word); break;
+
+    case 'prevCard':
+      if (wi > 0){ wi--; wflip = false; render(); }
+      break;
+
+    case 'nextCard':
+      if (wi < wordsOfDate(wdate || todayISO()).length - 1){ wi++; wflip = false; render(); }
+      break;
+
+    case 'gotoCard':
+      wi = Math.max(0, Math.min(WORDS_PER_DAY - 1, parseInt(el.dataset.i, 10) || 0));
+      wflip = false; render(); break;
+
+    case 'startQuiz':
+      wmode = 'quiz'; wi = 0; winput = ''; wfeedback = null; wfocus = true; wflip = false;
+      render(); break;
+
+    case 'submitAns':
+      submitWordAnswer(); break;
+
+    case 'nextQ': {
+      var wl = wordsOfDate(wdate || todayISO());
+      if (wi < wl.length - 1){ wi++; winput = ''; wfeedback = null; wmode = 'quiz'; wfocus = true; }
+      else { wmode = 'result'; }
+      render(); break;
+    }
+
+    case 'backCards':
+      wmode = 'learn'; wflip = false; wfeedback = null; winput = ''; render(); break;
+
+    case 'retryQuiz': {
+      var wd2 = wordDay(wdate || todayISO());
+      wd2.correct = {}; wd2.tries = {};
+      wmode = 'quiz'; wi = 0; winput = ''; wfeedback = null; wfocus = true; render(); break;
+    }
+
+    case 'openReview':
+      wdate = el.dataset.date; wmode = 'learn'; wi = 0; wflip = false;
+      wfeedback = null; winput = ''; render();
+      window.scrollTo({ top: 0, behavior: 'auto' }); break;
+
+    case 'wordToday':
+      wdate = todayISO(); wmode = 'learn'; wi = 0; wflip = false;
+      wfeedback = null; winput = ''; render(); break;
+
     case 'settings':
       sheet = 'settings'; render(); break;
 
@@ -1302,6 +2558,7 @@ document.addEventListener('input', function(ev){
   var t = ev.target;
   if (!t) return;
   if (t.id === 'mTitle'){ draft = t.value; return; }
+  if (t.id === 'wans'){ winput = t.value; return; }
   if (t.id === 'kidNameInput'){ S.childName = t.value.slice(0, 12); save();
     var b = document.getElementById('bsub');
     if (b) b.textContent = (S.childName || '').trim() ? S.childName + '의 미션 · 매일 모두 끝내면 코인 1개!' : '뀨뀨와 매일 미션을 모두 끝내면 코인 1개!';
@@ -1318,6 +2575,12 @@ document.addEventListener('keydown', function(ev){
   if (ev.key === 'Enter' && ev.target && ev.target.id === 'mTitle'){
     ev.preventDefault(); addMission();
   }
+  if (ev.key === 'Enter' && ev.target && ev.target.id === 'wans'){
+    ev.preventDefault(); submitWordAnswer();
+  }
+  if ((ev.key === 'Enter' || ev.key === ' ') && ev.target && ev.target.dataset && ev.target.dataset.act === 'flip'){
+    ev.preventDefault(); wflip = !wflip; render();
+  }
 });
 
 /* ---------- 시작 ---------- */
@@ -1331,8 +2594,26 @@ window.__kmc = {
   render: render,
   setDate: function(iso){ __testDate = iso; cursor = null; render(); },
   setView: function(v){ view = v; render(); },
-  reset: function(){ S = emptyState(); cursor = null; planWeek = null; planDay = null; sheet = null; save(); render(); }
+  reset: function(){ S = emptyState(); cursor = null; planWeek = null; planDay = null; sheet = null; words_reset(); save(); render(); },
+  words: {
+    all: function(){ return WORD_LIST; },
+    lessonOf: lessonOf,
+    ofDate: wordsOfDate,
+    day: wordDay,
+    correctCount: wordCorrectCount,
+    award: awardWordCoin,
+    submit: submitWordAnswer,
+    check: checkAnswer,
+    hint: function(k){ return HINT_TEXT[k]; },
+    state: function(){ return { wmode: wmode, wdate: wdate, wi: wi, wflip: wflip, input: winput }; },
+    go: function(mode, date){ wmode = mode || 'learn'; wdate = date || null; wi = 0; wflip = false; winput = ''; wfeedback = null; render(); },
+    type: function(v){ var e = document.getElementById('wans'); if (e){ e.value = v; winput = v; } return winput; },
+    setInput: function(v){ winput = v; },
+    startAt: function(i){ wi = i; wmode = 'quiz'; wfocus = true; render(); }
+  }
 };
+
+function words_reset(){ S.words = { start: '', days: {} }; wmode = 'learn'; wdate = null; wi = 0; wflip = false; winput = ''; wfeedback = null; }
 })();
 </script>
 </body>
