@@ -3020,6 +3020,7 @@ var wfeedback = null;     // { ok, msg }
 var winput = '';          // 입력 중인 답
 var wfocus = false;       // 렌더 후 입력칸에 포커스할지
 var wshake = false;       // 오답 흔들기
+var wcoinNow = false;     // 이번 완주에서 코인을 실제로 받았는지
 
 function wordsReady(){ return WORD_LIST.length >= WORDS_PER_DAY; }
 
@@ -3151,7 +3152,7 @@ function submitWordAnswer(){
     if (wordAllCorrect(date)) day.done = true;
     wfeedback = { ok: true };
     winput = '';
-    if (day.done) awardWordCoin(date);
+    if (day.done) wcoinNow = awardWordCoin(date);
   } else {
     day.tries[wi] = (day.tries[wi] || 0) + 1;
     wfeedback = { ok: false };
@@ -3303,9 +3304,9 @@ function wordResultHTML(date, today){
     }).join('') + '</div>';
 
   if (isToday){
-    out += day.coin
+    out += (day.coin && wcoinNow)
       ? '<div class="banner ok" style="margin-top:14px">🪙 <span><b>코인 +1</b>을 받았어요! 뀨뀨가 코인을 가져왔어요.</span></div>'
-      : '<div class="banner" style="margin-top:14px">🪙 <span>오늘 몫은 이미 받았어요. 내일 또 만나요!</span></div>';
+      : '<div class="banner" style="margin-top:14px">🪙 <span>오늘 영단어 몫은 이미 받았어요. 내일 또 만나요!</span></div>';
   } else {
     out += '<div class="banner" style="margin-top:14px">📖 <span>복습이에요. 코인은 <b>오늘의 7단어</b>에서 받아요.</span></div>';
   }
@@ -3771,6 +3772,7 @@ document.addEventListener('click', function(ev){
 
     case 'retryQuiz': {
       var wd2 = wordDay(wdate || todayISO());
+      wcoinNow = false;
       wd2.correct = {}; wd2.tries = {};
       wmode = 'quiz'; wi = 0; winput = ''; wfeedback = null; wfocus = true; render(); break;
     }
@@ -3878,7 +3880,7 @@ window.__kmc = {
   }
 };
 
-function words_reset(){ S.words = { start: '', days: {}, v: 2 }; wmode = 'learn'; wdate = null; wi = 0; wflip = false; winput = ''; wfeedback = null; }
+function words_reset(){ S.words = { start: '', days: {}, v: 2 }; wmode = 'learn'; wdate = null; wi = 0; wflip = false; winput = ''; wfeedback = null; wcoinNow = false; }
 })();
 </script>
 </body>
