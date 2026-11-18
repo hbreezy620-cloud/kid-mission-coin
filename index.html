@@ -1926,7 +1926,7 @@ function submitWordAnswer(){
   if (winput == null || !String(winput).trim()){ toast('답을 먼저 적어 주세요'); return; }
   if (checkAnswer(winput, w.answer)){
     day.correct[wi] = true;
-    day.done = wordAllCorrect(date);
+    if (wordAllCorrect(date)) day.done = true;
     wfeedback = { ok: true, msg: '정답! ' + w.answer + ' 🎉' };
     winput = '';
     if (day.done) awardWordCoin(date);
@@ -2095,7 +2095,7 @@ function wordResultHTML(date, today){
 function wordReviewHTML(today){
   var days = S.words && S.words.days ? S.words.days : {};
   var keys = Object.keys(days).filter(function(k){
-    return k !== today && k <= todayISO() && wordCorrectCount(k) > 0;
+    return k !== today && k <= todayISO() && (days[k].done || wordCorrectCount(k) > 0);
   }).sort().reverse().slice(0, 8);
   if (!keys.length){
     return '<section class="card" style="padding:13px 16px"><p class="sub" style="margin:0">📚 하루 5개씩 160일이면 교육부 초등 영단어 800개를 모두 만나요. 오늘도 화이팅!</p></section>';
@@ -2110,7 +2110,7 @@ function wordReviewHTML(today){
       return '<button class="wdrow" data-act="openReview" data-date="' + k + '">' +
         '<span class="wdbadge">' + lesson + '</span>' +
         '<span class="wdmain"><span class="wdt">' + longDate(k) + '</span>' +
-        '<span class="wds">' + wordCorrectCount(k) + '/' + total + ' 맞힘' + (d.coin ? ' · 코인 +1' : '') + '</span></span>' +
+        '<span class="wds">' + (d.done ? '5문제 완료' : wordCorrectCount(k) + '/' + total + ' 맞힘') + (d.coin ? ' · 코인 +1' : '') + '</span></span>' +
         '<span class="wdact">복습</span></button>';
     }).join('') +
   '</section>';
